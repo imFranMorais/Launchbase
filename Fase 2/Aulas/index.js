@@ -19,12 +19,12 @@
 
 
 // desafio 
-// criar um programa que calcula a média das notas entre os alunos e envia mensagem do cálculo da média.
+// criar um programa que calcula a média das turmas de alunos e envia mensagem do cálculo da média.
 
-const alunos = [
+const alunosdaturmaA = [
     {
         nome: "Mayk",
-        nota: 9.8
+        nota: 1.8
         },
     {
         nome: "Diego",
@@ -35,19 +35,48 @@ const alunos = [
         nota: 2
     }
 ]
-    
-const media = (alunos[0].nota + alunos[1].nota + alunos[2].nota) / 3
 
-// condicional: se .... então ...., se não .....
-// se a média for maior que 5, parabenizar a turma
-if (media > 5) {
-// faz uma coisa
-    console.log(`a nota foi de ${media}. parabéns`)
+const alunosdaturmaB = [
+    {
+        nome: "Clayton",
+        nota: 10
+        },
+    {
+        nome: "Robson",
+        nota: 10
+        },
+    {       
+        nome: "Siclano",
+        nota: 0
+    }
+]
+ 
+function calculaMedia(alunos){
+    return (alunos[0].nota + alunos[1].nota + alunos[2].nota) / 3
 }
-else {
-    // faz outra coisa
-    console.log(`a média é menor que 5`)
+
+const media1 = calculaMedia(alunosdaturmaA)
+const media2 = calculaMedia(alunosdaturmaB)
+
+
+function enviaMensagem(media, turma){
+    // condicional: se .... então ...., se não .....
+    // se a média for maior que 5, parabenizar a turma
+    if (media > 5) {
+        // faz uma coisa
+        console.log(`a média da turma ${turma} foi de ${media}. parabéns`)
+    }
+    else {
+        // faz outra coisa
+        console.log(`a média da turma ${turma} é menor que 5`)
+    }
 }
+
+enviaMensagem(media1, 'turmaA')
+enviaMensagem(media2, 'turmaB')
  
 // objetos: coleção de propriedades, que recebe valores ou funcionalidades de alguma coisa na programação.
 // vetores ou array: agrupa os objetos em uma única variável
+// funções: reaproveitamento de códigos, fazer uma lógica num bloco de códigos e sempre poder contar com isso sem precisar reescrevê-los
+// em "console.log()" o console é um objeto, o log é uma função/método e o que está dentro dos () são os parâmetros.
+// o método é quando a função está atrelada a um objeto.
