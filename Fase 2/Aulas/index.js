@@ -21,16 +21,22 @@
 // desafio 
 // criar um programa que calcula a média das notas entre os alunos e envia mensagem do cálculo da média.
 
-const aluno01 = 'Mayk'
-const notaAluno01 = 9.8
-
-const aluno02 = 'Diego'
-const notaAluno02 = 10
-
-const aluno03 = 'Fulano'
-const notaAluno03 = 2
-
-const media = (notaAluno01 + notaAluno02 + notaAluno03) / 3
+const alunos = [
+    {
+        nome: "Mayk",
+        nota: 9.8
+        },
+    {
+        nome: "Diego",
+        nota: 10
+        },
+    {       
+        nome: "Fulano",
+        nota: 2
+    }
+]
+    
+const media = (alunos[0].nota + alunos[1].nota + alunos[2].nota) / 3
 
 // condicional: se .... então ...., se não .....
 // se a média for maior que 5, parabenizar a turma
@@ -43,3 +49,5 @@ else {
     console.log(`a média é menor que 5`)
 }
  
+// objetos: coleção de propriedades, que recebe valores ou funcionalidades de alguma coisa na programação.
+// vetores ou array: agrupa os objetos em uma única variável
