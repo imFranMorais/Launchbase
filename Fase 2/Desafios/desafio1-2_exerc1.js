@@ -41,4 +41,4 @@ const empresa = {
     }
 }
 
-console.log(`A empresa ${empresa.nome} está localizada em ${empresa.endereco.rua},${empresa.endereco.numero}`)
+console.log(`A empresa ${empresa.nome} está localizada em ${empresa.endereco.rua}, ${empresa.endereco.numero}`)

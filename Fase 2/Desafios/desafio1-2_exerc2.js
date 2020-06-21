@@ -37,4 +37,4 @@ const tecnologia = [
     }
 ]
 
-console.log(`O usuário ${nome} tem ${idade} anos e usa a tecnologia ${tecnologia[0].nome} em ${tecnologia[0].especialidade}`)
+console.log(`O usuário ${nome} tem ${idade} anos e usa a tecnologia ${tecnologia[0].nome} com especialidade em ${tecnologia[0].especialidade}`)
