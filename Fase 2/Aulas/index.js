@@ -33,6 +33,10 @@ const alunosdaturmaA = [
     {       
         nome: "Fulano",
         nota: 2
+    },
+    {
+        nome: "mais um aluno",
+        nota: 10
     }
 ]
 
@@ -48,11 +52,21 @@ const alunosdaturmaB = [
     {       
         nome: "Siclano",
         nota: 0
+    },
+    {
+        nome: "Novo aluno",
+        nota: 5
     }
+
 ]
  
-function calculaMedia(alunos){
-    return (alunos[0].nota + alunos[1].nota + alunos[2].nota) / 3
+function calculaMedia(alunos) {
+    let soma = 0;
+    for (let i = 0; i < alunos.length; i++) {
+        soma = soma + alunos[i].nota
+    }
+    const media = soma / alunos.length
+    return media
 }
 
 const media1 = calculaMedia(alunosdaturmaA)
@@ -80,3 +94,5 @@ enviaMensagem(media2, 'turmaB')
 // funções: reaproveitamento de códigos, fazer uma lógica num bloco de códigos e sempre poder contar com isso sem precisar reescrevê-los
 // em "console.log()" o console é um objeto, o log é uma função/método e o que está dentro dos () são os parâmetros.
 // o método é quando a função está atrelada a um objeto.
+// estrutura de repetição: repete o bloco de códigos
+// let permite a alteração da variável
