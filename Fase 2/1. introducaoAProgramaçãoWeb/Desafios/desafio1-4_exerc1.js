@@ -14,7 +14,6 @@ function createTransaction(transaction) {
     }
 }
 
-
 function getHigherTransactionByType(type) {
     let higherTransaction
     let higherValue = 0
