@@ -1,5 +1,9 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
 
+:root {
+      --color-rocket: #7159c1
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +11,7 @@
 }
 
 body {
-    background: #7159C1;
+    background: #282a36;
     font-family: 'Roboto', sans-serif;
     color: white;
 }
@@ -49,7 +53,7 @@ header {
 }
 
 #sobre h1 {
-    color: #7159C1;
+    color: var(--color-rocket);
     font-size: 50px;
     line-height: 120px;
     font-weight: bold;
@@ -66,7 +70,7 @@ header {
     }
 
 #sobre h3 {
-    color: #7159C1;
+    color: var(--color-rocket);
     font-size: 20px;
     text-align: left;
     max-width: 400px;
@@ -83,7 +87,7 @@ header {
     }
     
 #sobre ul li {
-    color: #7159C1;
+    color: var(--color-rocket);
     font-size: 20px;
     text-align: left;
     margin-left: 18px;
@@ -105,5 +109,101 @@ header {
     text-decoration: underline;
 }
 
+#wrapper {
+    text-align: center;
+    padding: 32px;
+}
 
 
+/*=== CARDS ===*/
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--color-rocket);
+}
+
+.card__image-container img {
+    padding: 30px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.card__content,
+.card__info {
+    padding: 30px;
+}
+
+.card__info {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card__price {
+    background-color: var(--color-rocket);
+    filter: brightness(90%);
+    padding: 5px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0,7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    margin: 5vh auto;
+    position: relative;
+}
+
+.modal .close-modal {
+    color: black;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.modal .maximize-modal {
+    color: black;
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* === MODAL ACTIVE === */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+iframe {
+    width: 100%;
+    height: 95%;
+   position: absolute;
+    top: 5%;
+
+}
+
+.modal-overlay.maximize .modal {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+}
