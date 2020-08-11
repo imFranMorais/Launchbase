@@ -1,24 +1,24 @@
 {% extends "desafio3-1_layout.njk" %}
 
 {% block head %}
-<title>Sobre | Rocketseat</title>
+<title>Sobre | {{ about.name }}</title>
 
 {% endblock%}
 
 {% block content %}
 
         <div id="sobre">
-            <h1>Rocketseat</h1>
-            <img src="https://rocketseat.gallerycdn.vsassets.io/extensions/rocketseat/rocketseatreactnative/3.0.1/1588456740326/Microsoft.VisualStudio.Services.Icons.Default" alt="LogoRocketseat">
-            <h2>As melhores tecnologias em programação, direto ao ponto e do jeito certo.</h2>
-            <h3>No meio de tanta informação e da quantidade de ferramentas que surgem todos os dias, você precisa de alguém que te leve na direção certa.</h3>
-            <ul>Imagine você dominando as mesmas tecnologias adotadas pelos melhores times do mundo, construindo aplicações de alta performance e se destacando entre os maiores programadores: <li>Javascript</li><li>Javascript ES6+</li><li>NodeJS</li><li>ReactJS</li><li>React Native</li></ul>
+            <h1>{{ about.name }}</h1>
+            <img src="{{ about.avatar_url }};" alt=" Imagem de {{ about.name }}">
+            <h2>{{ about.role }}</h2>
+            <h3>{{ about.description }}</h3>
+            <ul>{{ about.list }}</ul>
         </div>
 
         <div class="redes-sociais">
-            <a href="https://github.com/rocketseat" target="_blank">GitHub</a>
-            <a href="https://www.instagram.com/rocketseat_oficial/?hl=pt-br" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/rocketseat/" target="_blank">Facebook</a>
+            {% for link in about.links%}
+            <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+            {% endfor %}
         </div>
 
 {% endblock %}    
