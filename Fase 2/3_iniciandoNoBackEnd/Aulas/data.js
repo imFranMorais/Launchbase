@@ -3,7 +3,8 @@ module.exports = [
         id: "GykTLqODQuU",
         title: "Formulário Animado com JS puro e CSS Animation | Maik Brito",
         duration: "57 min",
-        price: "Free"
+        price: "Free",
+        featured: true
     },
     {
         id: "HN1UjzRSdBk",
@@ -15,7 +16,8 @@ module.exports = [
         id: "vqrjFnq3-uo",
         title: "Criando Player de Áudio com Javascript | Mayk Brito",
         duration: "60 min",
-        price: "Free"
+        price: "Free",
+        featured: true
     },
     {
         id: "2alg7MQ6_sI",
@@ -27,7 +29,8 @@ module.exports = [
         id: "2G_mWfG0DZE",
         title: "Testes no NodeJS aplicando TDD com Jest | Diego Fernandes",
         duration: "60 min",
-        price: "Free"
+        price: "Free",
+        featured: true
     },
     {
         id: "GSqR2i-Pq6o",
