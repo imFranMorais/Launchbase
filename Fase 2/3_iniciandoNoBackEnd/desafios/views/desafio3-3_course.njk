@@ -1,20 +1,20 @@
 {% extends "desafio3-1_layout.njk" %}
 
 {% block head %}
-    <title>Cursos | Rocketseat</title>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <title>{{item.title}}</title>
 {% endblock %}
+
 {% block content %}
 
-    <div id="wrapper">
-        <h1>Conteúdos</h1>
+    <div id="wrapper" class="course">
+        <h1>{{item.title}}</h1>
     </div>
 
-    <section class="cards">
-        {% for item in items %}
+    <section class="course">
             <div class="card" id="{{item.id}}">
+                <div class="card__course-container">
+                    <iframe src="https://rocketseat.com.br/{{item.id}}" frameborder="0"></iframe>
+                </div>
                 <div class="card__content">
                     <p>{{item.title}}</p>
                 </div>
@@ -23,9 +23,5 @@
                     <p class="card__price">{{item.price}}</p>
                 </div>
             </div>
-        {% endfor %}
     </section>
-    
-    <script src="/scripts.js"></script>
-
 {% endblock %}

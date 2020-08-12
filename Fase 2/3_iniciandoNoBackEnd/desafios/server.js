@@ -35,6 +35,21 @@ server.get("/courses", function(req, res) {
     return res.render("desafio3-1_courses", {items: conteudos})
 })
 
+server.get("/courses/:id", function(req, res) {
+    const id = req.params.id;
+
+    const course = conteudos.find(function(course) {
+        return course.id == id
+    })
+
+        if (!course) {
+            return res.send("course not found")
+        }
+        return res.render("desafio3-3_course", { item: course })
+        return res.send(`O id fornecido na rota é: ${id}`);
+  });
+
+
 server.use(function(req, res) {
     res.status(404).render("desafio3-1_not-found")
 })
