@@ -96,7 +96,7 @@ header {
 }
 
 .details .item {
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 16px 0;
 }
 
@@ -105,7 +105,7 @@ header {
 }
 
 .details h3,
-.details .item div:nth-child(1){
+.details .item div:nth-child(1) {
     font-size: 14px;
     line-height: 24px;
     color: #777777;
@@ -113,8 +113,8 @@ header {
     font-weight: normal;
 
 }
-.details .item span,
-.details .item div:nth-child(2){
+.area,
+.details .item div:nth-child(2) {
     color: #555;
     font-weight: bold;
     font-size: 18px;
@@ -126,7 +126,8 @@ header {
     color: var(--primary-color);
 }
 
-.details .item span {
+.details .item .area {
+    padding: 8px 16px;
     margin-right: 4px;
     margin-top: 8px;
     display: inline-block;
@@ -139,4 +140,45 @@ header {
     margin-right: 4px;
     margin-top: 8px;
     display: inline-block;
+}
+
+/* FORM */
+input {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 8px;
+}
+
+.typeOfClass {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 8px 16px;
+    background-color:  rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    padding: 8px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+
 }
