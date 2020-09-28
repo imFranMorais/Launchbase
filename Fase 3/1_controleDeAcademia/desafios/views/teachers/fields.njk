@@ -1,0 +1,97 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input 
+            type="url" 
+            name="avatarUrl" 
+            placeholder="http://" 
+            value="{{teacher.avatarUrl}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Nome completo</div>
+    <div>
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Insira o nome completo do professor" 
+            value="{{teacher.name}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input 
+            type="date" 
+            name="birth" 
+            value="{{teacher.birth}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Grau de escolaridade</div>
+    <select name="graduation" placeholder="Selecione um nível">
+        <option 
+            value="highSchool" 
+            {% if teacher.graduation == 'highSchool' %} 
+            selected="selected" 
+            {% endif %}
+        >Ensino médio completo</option>
+        <option 
+            value="higherEducation" 
+            {% if teacher.graduation == 'higherEducation' %} 
+            selected="selected" 
+            {% endif %}
+        >Ensino superior completo</option>
+        <option 
+            value="master" 
+            {% if teacher.graduation == 'master' %} 
+            selected="selected" 
+            {% endif %}
+        >Mestrado</option>
+        <option 
+            value="doctorateDegree" 
+            {% if teacher.graduation == 'doctorateDegree' %} 
+            selected="selected" 
+            {% endif %}
+        >Doutorado</option>
+    </select>
+</div>
+
+<div class="item">
+    <div>Tipo de aula</div>
+    <span class="typeOfClass">
+        <input 
+            type="radio" 
+            name="typeOfClass" 
+            value="traditional" 
+            {% if teacher.typeOfClass == 'traditional' %} 
+            checked="checked" {% endif %}
+        >Presencial</span>
+    <span class="typeOfClass">
+        <input 
+            type="radio" 
+            name="typeOfClass" 
+            value="online" 
+            {% if teacher.typeOfClass == 'online' %} 
+            checked="checked" {% endif %}
+        >À distância</span>
+<div>
+
+<div class="item">
+    <div>Área de atuação</div>
+        <div>
+            <input 
+                type="text" 
+                name="occupationArea" 
+                placeholder="Separe a área de atuação por vírgulas" 
+                value="{{teacher.occupationArea}}"
+            >
+        </div>
+</div>
+
+<button type="submit">Salvar</button>

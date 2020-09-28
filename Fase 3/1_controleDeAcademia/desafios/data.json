@@ -1,3 +1,24 @@
 {
-  "teachers": []
+  "teachers": [
+    {
+      "avatarUrl": "https://source.unsplash.com/collection/8360382/500x500",
+      "name": "Francielle Morais",
+      "birth": 623116800000,
+      "graduation": "higherEducation",
+      "typeOfClass": "online",
+      "occupationArea": "testeum, testedois, testetres",
+      "created_at": 1601218237442,
+      "id": 1
+    },
+    {
+      "avatarUrl": "https://source.unsplash.com/collection/8360382/500x500",
+      "name": "Matheus Francisco",
+      "birth": 897177600000,
+      "graduation": "doctorateDegree",
+      "typeOfClass": "traditional",
+      "occupationArea": "outroteste, denovo",
+      "created_at": 1601223597685,
+      "id": 2
+    }
+  ]
 }
