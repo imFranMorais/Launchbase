@@ -1,15 +1,6 @@
 {
   "instructors": [
     {
-      "id": 1,
-      "avatar_url": "http://google.com",
-      "name": "Fran M",
-      "birth": 623116800000,
-      "gender": "F",
-      "services": "musuculaçãpo",
-      "created_at": 1600899205437
-    },
-    {
       "id": 2,
       "avatar_url": "http://doarei.com",
       "name": "matheus",
