@@ -189,3 +189,18 @@ a.button {
     text-align: center;
     text-decoration: none;
 }
+
+.button-side {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+ }
+
+ .button-side button{
+    margin-right: 8px;
+ }
+
+ .button-side .delete {
+     background-color: red;
+ }
