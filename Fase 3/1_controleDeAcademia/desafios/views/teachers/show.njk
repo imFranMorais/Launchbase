@@ -46,11 +46,10 @@
         <div class="button-side">
                 <a href="/teachers/{{teacher.id}}/edit" class="button">Editar</a>
                 <form id="form-delete" action="/teachers?_method=DELETE" method="post">
+                    <input type="hidden" name="id" value={{teacher.id}}>
                 <button type="submit" class="delete">Deletar</button>
-            <input type="hidden" name="id" value={{teacher.id}}>
         </form>
-        </div>
-
+        </div> 
         
 
 

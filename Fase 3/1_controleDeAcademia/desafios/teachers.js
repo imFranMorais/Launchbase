@@ -3,10 +3,21 @@ const data = require("./data.json")
 const { age, date, graduation } = require('./utils')
 const Intl = require('intl')
 
+exports.index = function(req, res) {
+
+    let teachers = data.teachers.map( teacher => {
+        const newTeacher = {
+              ...teacher,
+              occupationArea: teacher.occupationArea.split(",")
+        }
+        return newTeacher
+  })
+
+    return res.render("teachers/index", { teachers })
+}
 
 // show
 exports.show = function(req,res) {
-
     const { id } = req.params
 
     const foundTeacher = data.teachers.find(function(teacher){
@@ -69,16 +80,14 @@ exports.edit = function(req, res) {
     const { id } = req.params
 
     const foundTeacher = data.teachers.find(function(teacher) {
-        return id == teacher.id
+        return teacher.id == id
     })
 
     if (!foundTeacher) return res.send("Teacher not found")
 
     const teacher = {
         ...foundTeacher,
-        birth: date(foundTeacher.birth),
-        id: Number(data.teachers.length + 1)
-        
+        birth: date(foundTeacher.birth),        
     }
 
        
@@ -96,13 +105,14 @@ exports.put = function(req, res) {
             return true
         }
     })
-
+ 
     if (!foundTeacher) return res.send("Teacher not found")
 
     const teacher = {
         ...foundTeacher,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
 
     data.teachers[index] = teacher

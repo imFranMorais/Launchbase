@@ -3,10 +3,14 @@
 {% block content %}
 
 <div class="card">
-    <section class="avatar" style="background: url(https://source.unsplash.com/collection/8360382/500x500) no-repeat center center / cover"></section>
+    <section 
+        class="avatar" 
+        style="background: url(https://source.unsplash.com/collection/8360382/500x500) no-repeat center center / cover">
+    </section>
+    
     <section class="details">
 
-        <form  method="POST" action="/teachers?_method=PUT">
+        <form method="POST" action="/teachers?_method=PUT">
 
 
             <h3>Editar professor</h3>
@@ -16,10 +20,9 @@
             <input type="hidden" name="id" value={{teacher.id}}>
 
 
-                <button type="submit">Salvar</button>
+            <button type="submit">Salvar</button>
 
-
-        </form>
+        </form> 
 
         
 

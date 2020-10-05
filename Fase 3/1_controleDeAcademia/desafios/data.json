@@ -2,53 +2,33 @@
   "teachers": [
     {
       "avatarUrl": "https://source.unsplash.com/collection/8360382/500x500",
-      "name": "Matheus Francisco de Morais",
+      "name": "Mayk Brito",
       "birth": 897177600000,
       "graduation": "higherEducation",
-      "typeOfClass": "online",
-      "occupationArea": "outroteste, denovo, maisum",
-      "created_at": 1601223597685,
-      "id": "2"
-    },
-    {
-      "avatarUrl": "http://testandodenovo.com",
-      "name": "teste um dois tres",
-      "birth": 1577836800000,
-      "graduation": "master",
-      "typeOfClass": "online",
-      "occupationArea": "um, dois, tres, quatro, cinco",
-      "created_at": 1601408475226,
-      "id": 3
-    },
-    {
-      "avatarUrl": "http://teste",
-      "name": "testando",
-      "birth": 623116800000,
-      "graduation": "master",
-      "typeOfClass": "online",
-      "occupationArea": "um, dois",
-      "created_at": 1601408957667,
-      "id": 4
-    },
-    {
-      "avatarUrl": "http://cre",
-      "name": "jvjvk",
-      "birth": 1601251200000,
-      "graduation": "highSchool",
       "typeOfClass": "traditional",
-      "occupationArea": "iugig",
-      "created_at": 1601409611283,
-      "id": 5
+      "occupationArea": "Natação, Musculação",
+      "created_at": 1601223597685,
+      "id": 1
     },
     {
       "avatarUrl": "https://source.unsplash.com/collection/8360382/500x500",
-      "name": "Matheus Francisco de M",
-      "birth": 897177600000,
-      "graduation": "higherEducation",
+      "name": "Fran Morais",
+      "birth": 623116800000,
+      "graduation": "master",
       "typeOfClass": "online",
-      "occupationArea": "outroteste, denovo, maisum",
-      "created_at": 1601409825446,
-      "id": "6"
+      "occupationArea": "Spinning, Dança, Musculação",
+      "created_at": 1601408475226,
+      "id": 2
+    },
+    {
+      "avatarUrl": "https://source.unsplash.com/collection/8360382/500x500",
+      "name": "José da Silva",
+      "birth": -299376000000,
+      "graduation": "highSchool",
+      "typeOfClass": "traditional",
+      "occupationArea": "Aeróbico, Jump, Corrida",
+      "created_at": 1601408957667,
+      "id": 3
     }
   ]
 }
