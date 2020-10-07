@@ -1,6 +1,6 @@
 const fs = require('fs')
-const data = require("./data.json")
-const { age, date, graduation } = require('./utils')
+const data = require("../data.json")
+const { age, date, graduation } = require('../utils')
 const Intl = require('intl')
 
 exports.index = function(req, res) {
@@ -16,29 +16,11 @@ exports.index = function(req, res) {
     return res.render("teachers/index", { teachers })
 }
 
-// show
-exports.show = function(req,res) {
-    const { id } = req.params
-
-    const foundTeacher = data.teachers.find(function(teacher){
-        return id == teacher.id
-    })
-
-    if (!foundTeacher) return res.send("Teacher not found")
-
-    const teacher = {
-        ...foundTeacher,
-        age: age(foundTeacher.birth), 
-        occupationArea: foundTeacher.occupationArea.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
-        graduation: graduation(foundTeacher.graduation),
-    }
-
-    return res.render("teachers/show", { teacher })
+exports.create = function(req, res) {
+    return res.render('teachers/create')
 }
 
-// create
-exports.post = function(req, res){
+exports.post = function(req, res) {
 
     const keys = Object.keys(req.body)
 
@@ -75,7 +57,26 @@ exports.post = function(req, res){
 
 }
 
-// edit
+exports.show = function(req, res) {
+    const { id } = req.params
+
+    const foundTeacher = data.teachers.find(function(teacher){
+        return id == teacher.id
+    })
+
+    if (!foundTeacher) return res.send("Teacher not found")
+
+    const teacher = {
+        ...foundTeacher,
+        age: age(foundTeacher.birth), 
+        occupationArea: foundTeacher.occupationArea.split(","),
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
+        graduation: graduation(foundTeacher.graduation),
+    }
+
+    return res.render("teachers/show", { teacher })
+}
+
 exports.edit = function(req, res) {
     const { id } = req.params
 
@@ -94,7 +95,6 @@ exports.edit = function(req, res) {
     return res.render('teachers/edit', { teacher })
 }
 
-// put
 exports.put = function(req, res) {
     const { id } = req.body
     let index = 0
@@ -126,7 +126,6 @@ exports.put = function(req, res) {
 
 }
 
-// delete
 exports.delete = function(req, res) {
     const {id} = req.body
     

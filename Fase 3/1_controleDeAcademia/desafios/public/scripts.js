@@ -1,10 +1,8 @@
-const modalOverlay = document.querySelector('.modal-overlay');
-const cards = document.querySelectorAll('.card')
+const currentPage = location.pathname
+const menuItems = document.querySelectorAll("header .links a")
 
-for (let card of cards) {
-    card.addEventListener("click", function(){
-        const cursoId = card.getAttribute("id");
-        window.location.href = `/courses/${cursoId}`
-
-    })
-}
+for (item of menuItems) {
+    if (currentPage.includes(item.getAttribute("href"))) {
+        item.classList.add("active")
+    }
+} 

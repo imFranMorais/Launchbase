@@ -20,7 +20,14 @@ module.exports = {
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
         const day = `0${date.getUTCDate()}`.slice(-2)
 
-        return `${year}-${month}-${day}`
+        return {
+            day,
+            month,
+            year,
+            iso: `${year}-${month}-${day}`,
+            birthDay: `${day}/${month}`
+
+        }
     },
 
     graduation: function(level) {
@@ -38,6 +45,38 @@ module.exports = {
             case "doctorateDegree":
                 graduation = "Doutorado"
                 return graduation;
+            default:
+                console.log("No Option Selected");       
+        }
+    },
+
+    schoolYear: function(grade) {
+        let schoolYear;
+        switch (grade) {
+            case "5f":
+                schoolYear = "1° ensino fundamental";
+                return schoolYear;
+            case "6f":
+                schoolYear = "6° ensino fundamental";
+                return schoolYear;
+            case "7f":
+                schoolYear = "7° ensino fundamental";
+                return schoolYear;
+            case "8f":
+                schoolYear = "8° ensino fundamental";
+                return schoolYear;
+            case "9f":
+                schoolYear = "9° ensino fundamental";
+                return schoolYear;
+            case "1m":
+                schoolYear = "1° ensino médio";
+                return schoolYear;
+            case "2m":
+                schoolYear = "2° ensino médio";
+                return schoolYear;
+            case "3m":
+                schoolYear = "3° ensino médio";
+                return schoolYear;
             default:
                 console.log("No Option Selected");       
         }
