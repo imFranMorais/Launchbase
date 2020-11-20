@@ -1,0 +1,105 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input 
+            type="url" 
+            name="avatarUrl" 
+            placeholder="http://" 
+            value="{{student.avatarUrl}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Nome completo</div>
+    <div>
+        <input 
+            type="text" 
+            name="name" 
+            value="{{student.name}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input 
+            type="date" 
+            name="birth" 
+            value="{{student.birth}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input 
+            type="email" 
+            name="email" 
+            value="{{student.email}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Carga horária semanal</div>
+    <div>
+        <input 
+            type="number" 
+            name="weeklyWorkload"
+            placeholder="Quantidade de hrs de aulas particulares por semana"
+            value="{{student.weeklyWorkload}}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Ano escolar</div>
+    <div>
+        <select name="schoolYear">
+            <option 
+                value="5f" 
+                {% if student.schoolYear == "5f" %}selected{% endif %}
+                >5° ensino fundamental
+            </option>
+            <option 
+                value="6f"
+                {% if student.schoolYear == "6f" %}selected{% endif %}
+                >6° ensino fundamental
+            </option>
+            <option 
+                value="7f"                
+                {% if student.schoolYear == "7f" %}selected{% endif %}
+                >7° ensino fundamental
+            </option>
+            <option 
+                value="8f"                
+                {% if student.schoolYear == "8f" %}selected{% endif %}
+                >8° ensino fundamental
+            </option>
+            <option 
+                value="9f"                
+                {% if student.schoolYear == "9f" %}selected{% endif %}
+                >9° ensino fundamental
+            </option>
+            <option 
+                value="1m"                
+                {% if student.schoolYear == "1m" %}selected{% endif %}
+                >1° ensino médio
+            </option>
+            <option 
+                value="2m"                
+                {% if student.schoolYear == "2m" %}selected{% endif %}
+                >2° ensino médio
+            </option>
+            <option 
+                value="3m"                
+                {% if student.schoolYear == "3m" %}selected{% endif %}
+                >3° ensino médio
+            </option>
+        </select>
+    </div>
+</div>
+
+
