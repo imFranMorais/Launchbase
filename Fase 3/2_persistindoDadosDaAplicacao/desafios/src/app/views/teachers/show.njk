@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<div class="card">
+    <section 
+        class="avatar" 
+        style="background: url({{teacher.avatarUrl}}) no-repeat center center / cover">
+
+    </section>
+    <section class="details">
+
+        <h3>Detalhes</h3>
+
+        <div class="item">
+            <div>Nome completo</div>
+            <div>{{teacher.name}}</div>
+        </div>
+
+        <div class="item">
+            <div>Idade</div>
+            <div>{{teacher.age}}</div>
+        </div>
+
+        <div class="item">
+            <div>Grau de escolaridade</div>
+            <div>{{teacher.graduation}}</div>
+        </div>
+        
+        <div class="item">
+            <div>Tipo de aula</div>
+            <div>{{"Presencial" if teacher.typeOfClass == "traditional" else "À distância"}}</div>
+        </div>
+
+        <div class="item">
+            <div>Acompanhamento</div>
+            {% for area in teacher.occupationArea %}
+            <span class="area">{{ area }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="item">
+            <div>Desde</div>
+            <div>{{teacher.created_at}}</div>
+        </div>
+
+        <div class="button-side">
+                <a href="/teachers/{{teacher.id}}/edit" class="button">Editar</a>
+                <form id="form-delete" action="/teachers?_method=DELETE" method="post">
+                    <input type="hidden" name="id" value={{teacher.id}}>
+                <button type="submit" class="delete">Deletar</button>
+        </form>
+        </div>
+
+        <script>
+            const formDelete = document.querySelector("#form-delete")
+            formDelete.addEventListener("submit", function(event) {
+                const confirmation = confirm("Deseja deletar?")
+                if(!confirmation) {
+                    event.preventDefault()
+                }
+            })
+        </script> 
+
+        
+        
+
+
+    </section>
+</div>
+
+
+
+
+{% endblock content %}
