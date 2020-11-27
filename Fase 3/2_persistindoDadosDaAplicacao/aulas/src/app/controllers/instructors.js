@@ -1,9 +1,13 @@
+const instructor = require('../models/instructor')
 const { age, date } = require('../../lib/utils')
-const db = require
+
 
 module.exports = {
     index(req, res) {
-        return res.render("instructors/index")
+
+        instructor.all(function(instructors){
+            return res.render("instructors/index", { instructors })
+        })
     },
     create(req, res) {
         return res.render("instructors/create")
@@ -18,36 +22,38 @@ module.exports = {
             }
         }
 
-        const query = `
-            INSERT INTO instructors (
-                name,
-                avatar_url,
-                gender,
-                services,
-                birth,
-                created_at
-            ) VALUES (s1, s2, s3, s4, s5, s6)
-            RETURNING id
-            `
-
-        const values = [
-            req.body.name,
-            req.body.avatar_url,
-            req.body.gender,
-            req.body.services,
-            date(req.body.birth).iso,
-            date(Date.now()).iso    
-        ]
-
-
-        return
+        instructor.create(req.body, function(instructor) {
+            return res.redirect(`/instructors/${instructor.id}`)
+        })
+        
     },
     show(req, res) {
-        return
+        instructor.find(req.params.id, function(instructor) {
+            if (!instructor) return res.send("Instructor not found!")
+            
+            instructor.age = age(instructor.birth)
+            instructor.services = instructor.services.split(",")
+
+            instructor.created_at = date(instructor.created_at).format
+
+            return res.render("instructors/show", {instructor})
+
+
+        })
 
     },
     edit(req, res) {
-        return
+        instructor.find(req.params.id, function(instructor) {
+            if (!instructor) return res.send("Instructor not found!")
+            
+            instructor.birth = date(instructor.birth).iso
+
+
+            return res.render("instructors/edit", {instructor})
+
+
+        })
+
     },
     put(req, res) {
         const keys = Object.keys(req.body)
@@ -58,10 +64,13 @@ module.exports = {
             }
         }
 
-
-        return
+        instructor.update(req.body, function() {
+            return res.redirect(`/instructors/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        return
+        instructor.delete(req.body.id, function() {
+            return res.redirect(`/instructors`)
+        })
     },
 }
