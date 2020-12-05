@@ -1,16 +1,16 @@
 const member = require('../models/member')
 const { age, date } = require('../../lib/utils')
 
-
 module.exports = {
     index(req, res) {
-
         member.all(function(members){
             return res.render("members/index", { members })
         })
     },
     create(req, res) {
-        return res.render("members/create")
+        member.instructorsSelectOptions(function(options) {
+            return res.render('/members/create', {instructorOptions: options})
+        })
     },
     post(req, res) {
 
@@ -45,12 +45,10 @@ module.exports = {
             
             member.birth = date(member.birth).iso
 
-
-            return res.render("members/edit", {member})
-
-
+            member.instructorsSelectOptions(function(options) {
+                return res.render("members/edit", {member, instructorOptions: options})
+            })
         })
-
     },
     put(req, res) {
         const keys = Object.keys(req.body)
