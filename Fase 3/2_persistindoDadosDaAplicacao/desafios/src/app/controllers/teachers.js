@@ -1,34 +1,43 @@
-const fs = require('fs')
-const data = require("../data.json")
+const teacher = require('../models/teacher')
 const { age, date, graduation } = require('../utils')
-const Intl = require('intl')
 
-exports.index = function(req, res) {
+module.exports = {
+    index(req, res) {
 
-    let teachers = data.teachers.map( teacher => {
-        const newTeacher = {
-              ...teacher,
-              occupationArea: teacher.occupationArea.split(",")
+        instructor.all(function(instructors){
+            return res.render("instructors/index", { instructors })
+        })
+
+        
+
+//     let teachers = data.teachers.map( teacher => {
+//         const newTeacher = {
+//               ...teacher,
+//               occupationArea: teacher.occupationArea.split(",")
+//         }
+//         return newTeacher
+//   })
+
+//     return res.render("teachers/index", { teachers })
+},
+ 
+    create(req, res) {
+        return res.render('teachers/create')
+},
+
+    post(req, res) {
+
+        const keys = Object.keys(req.body)
+
+        for(key of keys) {
+            if(req.body[key] == ""){
+                return res.send("cadastre algo")
+            }
         }
-        return newTeacher
-  })
 
-    return res.render("teachers/index", { teachers })
-}
-
-exports.create = function(req, res) {
-    return res.render('teachers/create')
-}
-
-exports.post = function(req, res) {
-
-    const keys = Object.keys(req.body)
-
-    for(key of keys) {
-        if(req.body[key] == ""){
-            return res.send("cadastre algo")
-        }
-    }
+        instructor.create(req.body, function(instructor) {
+            return res.redirect(`/instructors/${instructor.id}`)
+        })
 
     let  { avatarUrl, name, birth, graduation, typeOfClass, occupationArea } = req.body
     
@@ -55,9 +64,9 @@ exports.post = function(req, res) {
         return res.redirect("/teachers")
     })
 
-}
+},
 
-exports.show = function(req, res) {
+    show(req, res) {
     const { id } = req.params
 
     const foundTeacher = data.teachers.find(function(teacher){
@@ -75,9 +84,9 @@ exports.show = function(req, res) {
     }
 
     return res.render("teachers/show", { teacher })
-}
+},
 
-exports.edit = function(req, res) {
+    edit(req, res) {
     const { id } = req.params
 
     const foundTeacher = data.teachers.find(function(teacher) {
@@ -93,9 +102,9 @@ exports.edit = function(req, res) {
 
        
     return res.render('teachers/edit', { teacher })
-}
+},
 
-exports.put = function(req, res) {
+    put(req, res) {
     const { id } = req.body
     let index = 0
 
@@ -124,9 +133,9 @@ exports.put = function(req, res) {
     } )
 
 
-}
+},
 
-exports.delete = function(req, res) {
+    delete(req, res) {
     const {id} = req.body
     
     const filteredTeachers = data.teachers.filter(function(teacher) {
@@ -142,3 +151,4 @@ exports.delete = function(req, res) {
     })
 }
 
+}

@@ -1,21 +1,38 @@
-const instructor = require('../models/instructor')
+const Instructor = require('../models/Instructor')
 const { age, date } = require('../../lib/utils')
 
 
 module.exports = {
     index(req, res) {
-        const { filter } = req.query
+        let { filter, page, limit } = req.query
 
-        if ( filter ) {
-            instructor.findBy(filter, function(instructors) {
+        page = page || 1
+        limit = limit || 2
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(instructors) {
                 return res.render("instructors/index", { instructors, filter })
-            })
 
-        } else {
-            instructor.all(function(instructors){
-                return res.render("instructors/index", { instructors })
-            })
+            }
         }
+
+        Instructor.paginate(params)
+
+        // if ( filter ) {
+        //     Instructor.findBy(filter, function(instructors) {
+        //         return res.render("instructors/index", { instructors, filter })
+        //     })
+
+        // } else {
+        //     Instructor.all(function(instructors){
+        //         return res.render("instructors/index", { instructors })
+        //     })
+        // }
 
     },
     create(req, res) {
@@ -31,13 +48,13 @@ module.exports = {
             }
         }
 
-        instructor.create(req.body, function(instructor) {
+        Instructor.create(req.body, function(instructor) {
             return res.redirect(`/instructors/${instructor.id}`)
         })
         
     },
     show(req, res) {
-        instructor.find(req.params.id, function(instructor) {
+        Instructor.find(req.params.id, function(instructor) {
             if (!instructor) return res.send("Instructor not found!")
             
             instructor.age = age(instructor.birth)
@@ -52,7 +69,7 @@ module.exports = {
 
     },
     edit(req, res) {
-        instructor.find(req.params.id, function(instructor) {
+        Instructor.find(req.params.id, function(instructor) {
             if (!instructor) return res.send("Instructor not found!")
             
             instructor.birth = date(instructor.birth).iso
@@ -73,12 +90,12 @@ module.exports = {
             }
         }
 
-        instructor.update(req.body, function() {
+        Instructor.update(req.body, function() {
             return res.redirect(`/instructors/${req.body.id}`)
         })
     },
     delete(req, res) {
-        instructor.delete(req.body.id, function() {
+        Instructor.delete(req.body.id, function() {
             return res.redirect(`/instructors`)
         })
     },
