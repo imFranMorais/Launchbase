@@ -16,6 +16,12 @@ module.exports = {
             limit,
             offset,
             callback(instructors) {
+
+                const pagination = {
+                    filter,
+                    total,
+                    page
+                }
                 return res.render("instructors/index", { instructors, filter })
 
             }
@@ -23,17 +29,7 @@ module.exports = {
 
         Instructor.paginate(params)
 
-        // if ( filter ) {
-        //     Instructor.findBy(filter, function(instructors) {
-        //         return res.render("instructors/index", { instructors, filter })
-        //     })
-
-        // } else {
-        //     Instructor.all(function(instructors){
-        //         return res.render("instructors/index", { instructors })
-        //     })
-        // }
-
+        
     },
     create(req, res) {
         return res.render("instructors/create")

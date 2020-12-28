@@ -7,14 +7,9 @@ for (item of menuItems) {
     }
 }
 
-// Paginação
-// totalPage = 20
-// selectedPages = 15
-// [1, ... 13, 14, 15, 16, 17, ... 20]
 
-let totalPages = 20,
-    selectedPage = 15,
-    pages = [],
+function pagination(selectedPage, totalPages) {
+    let pages = [],
     oldPage
 
 for(let currentPage = 1; currentPage <= totalPages; currentPage++) {
@@ -41,5 +36,6 @@ for(let currentPage = 1; currentPage <= totalPages; currentPage++) {
     }
 }
 
-console.log(pages)
+return pages
 
+}
