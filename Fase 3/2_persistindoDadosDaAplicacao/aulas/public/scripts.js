@@ -8,7 +8,7 @@ for (item of menuItems) {
 }
 
 
-function pagination(selectedPage, totalPages) {
+function paginate(selectedPage, totalPages) {
     let pages = [],
     oldPage
 
@@ -39,3 +39,7 @@ for(let currentPage = 1; currentPage <= totalPages; currentPage++) {
 return pages
 
 }
+
+const pagination = document.querySelector(".pagination")
+const page = +pagination.dataset.page
+const total = +pagination.dataset.total
