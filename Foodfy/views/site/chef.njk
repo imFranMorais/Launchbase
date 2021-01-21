@@ -1,0 +1,48 @@
+{% extends "site/layout.njk" %}
+
+{% block head %}
+    <title>Foodfy | Chef</title>
+{% endblock %}
+
+{% block logoImg %}
+    <div class="logo-image">
+        <a href="/site/index"><img src="/image/logo.png" alt="logo foodfy"></a>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="chef-title">
+        <h2>Chef: {{chef.title}}</h2>
+    </div>
+
+    <div id="chef_image">
+        <img src="{{chef.image}}" alt="">
+    </div>
+
+    <div id="chef_title">
+        <h1>{{chef.title}}</h1>
+        <p>AQUI DEVE APARECER O NUMERO DE RECEITAS</p>
+    </div>
+
+    <div class="wrapper">
+        <h2>Receitas</h2>
+    </div>
+
+    <section class="cards">
+        {% for recipe in recipes %}
+            <div class="card">
+                <div class="card__image-container">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                </div>
+                <div class="card__content">
+                    <p>{{recipe.title}}</p>
+                    <span>por {{recipe.author}}</span>
+                    <a href="/recipes/{{recipe.id}}">Visualizar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock content %}

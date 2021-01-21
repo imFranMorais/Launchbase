@@ -1,0 +1,27 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <div class="card-container">
+
+        <div class="wrapper">
+            <h2>Gerenciar chefs</h2>
+        </div>
+
+        <section class="cards">
+            {% for chef in chefs %}
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.name}}">
+                    </div>
+                    <div class="card__content">
+                        <p>{{chef.name}}</p>
+                        <a href="/chefs/{{chef.id}}">Visualizar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+
+    </div>
+
+{% endblock content %}

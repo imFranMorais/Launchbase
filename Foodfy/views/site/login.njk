@@ -1,0 +1,52 @@
+{% extends "site/layout.njk" %}
+
+{% block head %}
+    <title>Foodfy | Entrar</title>
+{% endblock %}
+
+{% block logoImg %}
+    <div class="logo">
+        <img src="/image/logo.png" alt="logo foodfy">
+    </div>
+{% endblock %}
+
+{% block filter %}
+    <form action="/recipes" method="GET">
+        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter}}>
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+
+    <div id="login">
+        <h1>Iniciar Sessão</h1>
+
+        <div class="item">
+            <div>Email</div>
+                <div>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        placeholder="Digite seu e-mail"
+                    >
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Senha</div>
+                <div>
+                    <input 
+                        type="text" 
+                        name="password" 
+                        placeholder="Digite sua senha"
+                    >
+                </div>
+            </div>
+
+            Registre-se
+            Perdeu a senha?
+            Acessar (botão)
+        
+        
+{% endblock %}

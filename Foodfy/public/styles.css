@@ -1,0 +1,292 @@
+/* front */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Roboto;
+    
+}
+
+.container {
+    width: 80%;
+    display: flex;
+}
+
+.-column {
+    flex-direction: column;
+}
+
+.-row {
+    flex-direction: row;
+}
+
+main {
+    justify-content: center;
+    display: flex;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    height: 80px; 
+    
+}
+
+header .logo img {
+    margin-top: 36.1px;
+    text-align: left;
+    width: 90.6px;
+    height: 26.9px;
+}
+
+header .menu {
+    margin-left: 122.4px;
+    margin-top: 38px;
+    
+}
+
+header .menu a {
+    margin-right: 30px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #111111;
+    text-decoration: none;
+    }
+
+#introduction {
+    margin-top: 36px;
+    background-color: #FBDFDB;
+    border-radius: 30px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+#introduction h1 {
+    padding: 117px 0 10px 60px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    grid-row: 1 / 2;
+}
+
+#introduction p {
+    max-width: 316px;
+    padding: 0 0 117px 60px;
+    text-align: left;
+    color: #000000;
+    opacity: 0.7;
+    font-size: 18px;
+    line-height: 28px;
+    grid-row: 2 / 3;
+}
+
+#introduction img {
+    width: 216px;
+    height: 300px;
+    grid-row: 1 / 3;
+    text-align: right;
+    padding-top: 66px;
+    padding-right: 100px;
+    padding-bottom: 0px;
+    padding-left: 248px;    
+}
+
+.wrapper h2 {
+    padding: 50px 0 20px 0;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+    text-align: left;
+}
+
+.cards,
+.recipes_cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px
+}
+
+.card {
+    display: grid;
+}
+
+.card__image-container img {
+    width: 300px;
+    height: 140px;
+    border-radius: 15px;
+}
+
+.card__content p {
+    padding: 20px 0 5px 0;
+    color: #111111;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+}
+
+.card__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+.card__info p {
+    padding-bottom: 30px;
+    color: #777777;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+}
+
+footer {
+    background-color: #EEEEEE;
+    height: 62px;
+    width: 100%;
+    left: 0;
+}
+
+footer p {
+    color: #999999;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 23px 23px;
+}
+
+/* === PAGE ABOUT === */
+.logo-text {
+    padding-top: 30px;
+}
+
+.logo-text a {
+    font-family: Cochin;
+    color: #111111;
+    font-size: 28px;
+    letter-spacing: 1.65px;
+    line-height: 32px;
+    text-decoration: none;
+} 
+
+header .menu a.sobre {
+    font-weight: bold;
+}
+
+main #sobre {
+    padding-top: 20px;
+}
+
+main #sobre p,
+main #como p,
+main #receitas p {
+    padding: 20px 0 30px 0;
+    text-align: left;
+    color: #444444;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#sobre h1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    padding-bottom: 20px;
+}
+
+#como h1,
+#receitas h1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* === RECIPES === */
+header .menu a.receitas {
+    font-weight: bold;
+}
+
+main .recipes_cards {
+    padding-top: 50px;
+}
+
+/* === RECIPE === */
+#recipe_image {
+    margin-top: 36px;
+    text-align: center;
+}
+
+#recipe_image img {
+    border-radius: 15px;
+    width: 100%;
+}
+
+#recipe_title {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+#recipe_title h1 {
+    font-weight: bold;
+    margin-bottom: 4px; 
+    font-size: 36px;
+    line-height: 42px;
+    color: #111111;  
+}
+
+#recipe_title p {
+    color: #777777;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 50px;
+}
+
+.topic {
+    margin-bottom: 39px;
+}
+
+.title {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: left;
+    text-align: center;
+
+}
+
+.title h2{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+    
+}
+
+.title span {
+    margin-left: 8px;
+    font-weight: bold;
+    color: #999999;
+    font-size: 12px;
+    line-height: 14px;
+    padding-top: 7px;
+}
+
+.content.hidden {
+    display: none;
+}
+
+.content {
+    color: #444444;
+    font-size: 18px;
+    line-height: 28px;
+}

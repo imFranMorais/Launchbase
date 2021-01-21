@@ -1,0 +1,73 @@
+{% extends "site/layout.njk" %}
+
+{% block head %}
+    <title>Foodfy |{{item.title}}</title>
+{% endblock %}
+
+{% block logoText %}
+    <div class="logo-text">
+        <a href="/">Foodfy</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div id="recipe_image">
+        <img src="{{item.image}}" alt="">
+    </div>
+
+    <div id="recipe_title">
+        <h1>{{item.title}}</h1>
+        <p>por {{item.author}}</p>
+    </div>
+
+    <section class="recipe">
+
+        <div class="topic">
+            <div class="title">
+                <h2>Ingredientes</h2>
+                <span>ESCONDER</span>
+            </div>
+            <div class="content">
+                <ul>
+                    {% for ingredient in item.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <div class="title">
+                <h2>Modo de Preparo</h2>
+                <span>ESCONDER</span>
+            </div>
+            <div class="content">
+                <ul>
+                    {% for preparation in item.preparation %}
+
+                        <p>{{preparation}}</p>
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <div class="title">
+                <h2>Informações adicionais</h2>
+                <span>ESCONDER</span>
+            </div>
+            <div class="content">
+                <p>{{item.information | nl2br}}</p>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
+
+{% block script %}
+
+    <script src="/scripts.js"></script>
+
+{% endblock %}

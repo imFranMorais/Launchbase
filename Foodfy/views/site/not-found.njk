@@ -1,0 +1,29 @@
+{% extends "site/layout.njk" %}
+
+{% block head %}
+    <title>Foodfy | Erro</title>
+{% endblock %}
+
+{% block logoImg %}
+    <div class="logo">
+        <img src="/image/logo.png" alt="logo foodfy">
+    </div>
+{% endblock %}
+
+{% block filter %}
+    <form action="/recipes" method="GET">
+        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter} }="}">
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+
+    <div id="introduction">
+        <h1>Oops!</h1>
+        <img src="/image/chef.png" alt="Chefe">
+        <p>Página não encontrada.</p>
+        <p>Que tal retornar ao <a href="/">início</a></p>
+    </div>
+
+{% endblock %}

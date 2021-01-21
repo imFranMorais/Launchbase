@@ -1,0 +1,37 @@
+{% extends "site/layout.njk" %}
+
+{% block head %}
+    <title>Foodfy | Chefs</title>
+{% endblock %}
+
+{% block logoText %}
+    <div class="logo-text">
+        <a href="/">Foodfy</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <section class="chefs_cards">
+        {% for item in items%}
+            <div class="card" id="{{item.image}}">
+                <div class="card__image-container">
+                    <img src="{{item.image}}" alt="imagem de {{item.title}}">
+                </div>
+                <div class="card__info">
+                    <p>{{item.author}}</p>
+                </div>
+                <div class="card__recipes">
+                    <p>APARECER QUANTIDADE DE RECEITAS</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
+
+{% block script %}
+
+    <script src="scripts.js"></script>
+
+{% endblock %}
