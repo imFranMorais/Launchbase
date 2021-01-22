@@ -1,6 +1,10 @@
 const fs = require('fs')
 const data = require('./data.json')
 
+exports.index = function (req, res) {
+    return res.render("admin/recipes/index", { recipes: data.recipes })
+}
+
 exports.show = function (req, res) {
     const { id } = req.params
 
@@ -54,7 +58,7 @@ exports.post = function (req, res) {
     // return res.send(req.body)
 }
 
-exports.edit = function(req, res){
+exports.edit = function (req, res) {
 
     const { id } = req.params
 
@@ -68,7 +72,7 @@ exports.edit = function(req, res){
     return res.render("admin/recipes/edit", { recipe: foundRecipe })
 }
 
-exports.put = function(req, res) {
+exports.put = function (req, res) {
     const { id } = req.body
     let index = 0
 
@@ -96,7 +100,7 @@ exports.put = function(req, res) {
 
 }
 
-exports.delete = function(req, res) {
+exports.delete = function (req, res) {
     const { id } = req.body
 
     const filteredRecipes = data.recipes.filter(function(recipe) {
