@@ -48,3 +48,15 @@ exports.post = function (req, res) {
 
 }
 
+exports.edit = function(req, res){
+
+    const { id } = req.params
+
+    const foundChef = data.chefs.find(function(chef){
+        return chef.id == id
+    })
+
+    if (!foundChef) return res.send("Chef not found!")
+
+    return res.render("admin/chefs/edit", { chef: foundChef })
+}

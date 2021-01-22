@@ -18,12 +18,9 @@ routes.get('/admin/chefs/create', function(req, res){
 
 routes.get('/admin/chefs/:id', chefs.show)
 
-routes.get('/admin/chefs/:id/edit', function(req, res){
-    return res.render("admin/chefs/edit")
-})
+routes.get('/admin/chefs/:id/edit', chefs.edit)
 
 routes.post('/admin/chefs', chefs.post)
-
 
 routes.get('/admin/recipes', function(req, res){
     return res.render("admin/recipes/index")
@@ -35,9 +32,7 @@ routes.get('/admin/recipes/create', function(req, res){
 
 routes.get('/admin/recipes/:id', recipes.show)
 
-routes.get('/admin/recipes/:id/edit', function(req, res){
-    return res.render("admin/recipes/edit")
-})
+routes.get('/admin/recipes/:id/edit', recipes.edit)
 
 routes.post('/admin/recipes', recipes.post)
 
