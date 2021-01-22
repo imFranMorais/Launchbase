@@ -22,6 +22,10 @@ exports.show = function (req, res) {
 
 }
 
+exports.create = function (req, res) {
+    return res.render("admin/chefs/create")
+}
+
 exports.post = function (req, res) {
 
     const keys = Object.keys(req.body)
