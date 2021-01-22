@@ -1,7 +1,7 @@
 const fs = require('fs')
 const data = require('./data.json')
 
-//show
+
 exports.show = function (req, res) {
     const { id } = req.params
 
@@ -39,14 +39,14 @@ exports.post = function (req, res) {
         avatar_url,
     })
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function() {
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) return res.send("Write file error!")
 
         return res.redirect("/admin/chefs")
 
     })
 
-}
+} 
 
 exports.edit = function(req, res){
 
@@ -59,4 +59,38 @@ exports.edit = function(req, res){
     if (!foundChef) return res.send("Chef not found!")
 
     return res.render("admin/chefs/edit", { chef: foundChef })
+}
+
+exports.put = function(req, res) {
+
+    const { id } = req.body
+    let index = 0
+
+    const foundChef = data.chefs.find(function(chef, foundIndex) {
+        if (id == chef.id) {
+            index = foundIndex
+            return true
+        }
+
+    })
+
+    if (!foundChef) return res.send("Chef not found!")
+
+    const chef = {
+        ...foundChef,
+        ...req.body
+    }
+
+    data.chefs[index] = chef
+
+    fr.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
+        if (err) return res.send("Write file error!")
+
+        return res.redirect(`/admin/chefs/${id}`)
+    })
+
+}
+
+exports.delete = function(req, res) {
+    
 }
