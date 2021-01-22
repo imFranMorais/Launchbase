@@ -24,6 +24,8 @@ routes.post('/admin/chefs', chefs.post)
 
 routes.put('/admin/chefs', chefs.put)
 
+routes.delete('/admin/chefs', chefs.delete)
+
 routes.get('/admin/recipes', function(req, res){
     return res.render("admin/recipes/index")
 })
@@ -39,6 +41,9 @@ routes.get('/admin/recipes/:id/edit', recipes.edit)
 routes.post('/admin/recipes', recipes.post)
 
 routes.put('/admin/recipes', recipes.put)
+
+routes.delete('/admin/recipes', recipes.delete)
+
 
 routes.get('/site/about', function(req, res){
     return res.render("site/about")
