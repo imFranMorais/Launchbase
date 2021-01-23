@@ -1,7 +1,10 @@
+// parei na aula membros, criando botão adicionar instrutores 
+
 const express = require('express')
 const routes = express.Router()
-const chefs = require('./chefs')
-const recipes = require('./recipes')
+const chefs = require('./controllers/chefs')
+const recipes = require('./controllers/recipes')
+const site = require('./controllers/site')
 
 
 routes.get('/', function(req, res){
@@ -32,5 +35,5 @@ routes.get('/site/chefs', site.chefs)
 routes.get('/site/chef', site.chef)
 routes.get('/site/login', site.login)
 routes.get('/site/not-found', site.notFound)
- 
+
 module.exports = routes 

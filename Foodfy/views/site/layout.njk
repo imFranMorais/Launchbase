@@ -23,12 +23,18 @@
                     <a href="/site/chefs" class="chefs">Chefs</a>
                     <a href="/site/login" class="entrar">Entrar</a>
                 </nav>
+
+                {% block filter %}{% endblock %}
+
             </div>
 
-            {% block filter %}{% endblock %}
         </header>
 
-        {% block content %}{% endblock %}
+        <main>
+            <div class="container -column">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
     </body>
 
     <footer>
@@ -37,6 +43,8 @@
 
     </footer>
 
-    {% block script %}{% endblock %}
+    <script src="/scripts.js"></script>
+
+    {# {% block script %}{% endblock %} #}
 
 </html>

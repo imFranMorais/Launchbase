@@ -31,17 +31,17 @@
 
     <section class="cards">
 
-        {% for item in items %}
+        {% for recipe in recipes %}
 
             <div class="card">
                 <div class="card__image-container">
-                    <img src="{{item.image}}" alt="Imagem de {{item.title}}">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
                 </div>
                 <div class="card__content">
-                    <p>{{item.title}}</p>
+                    <p>{{recipe.title}}</p>
                 </div>
                 <div class="card__info">
-                    <p>{{item.author}}</p>
+                    <p>{{recipe.name}}</p>
                 </div>
             </div>
 
