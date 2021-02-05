@@ -2,15 +2,15 @@
 
 const express = require('express')
 const routes = express.Router()
-const chefs = require('./controllers/chefs')
-const recipes = require('./controllers/recipes')
-const site = require('./controllers/site')
+const chefs = require('./app/controllers/chefs')
+const recipes = require('./app/controllers/recipes')
+const site = require('./app/controllers/site')
 
 
 routes.get('/', function(req, res){
     return res.redirect("/site/index")
 })
-
+ 
 routes.get('/admin/chefs', chefs.index)
 routes.get('/admin/chefs/create', chefs.create)
 routes.get('/admin/chefs/:id', chefs.show)
