@@ -1,3 +1,5 @@
+const db = require('../../config/db')
+
 module.exports = {
     index(req, res) {
         return res.render("admin/chefs/index")
@@ -20,7 +22,26 @@ module.exports = {
                 return res.send("Please, fill all fields!")
             } 
         }
-        return 
+
+        const query = `
+            INSERT INTO chefs (
+                name,
+                avatar_url
+            ) VALUES ($1, $2)
+            RETURNING id
+        `
+
+        const values = [
+            req.body.name,
+            req.body.avatar_url
+        ]
+
+        db.query(query, values, function(err, results) {
+            if(err) return res.send("Database Error!")
+
+            return res.redirect(`/chefs/${results.rows[0].id}`)
+
+        })
     },
     
     edit(req, res) {
