@@ -1,0 +1,35 @@
+const db = require('../../config/db')
+
+module.exports = {
+    all(callback) {
+        db.query(`SELECT * FROM chefs`, function(err, results) {
+            if(err) return res.send("Database Error!")
+
+            callback(results.rows)
+
+        })
+    },
+    create(data, callback) {
+        const query = `
+            INSERT INTO chefs (
+                name,
+                avatar_url
+            ) VALUES ($1, $2)
+            RETURNING id
+        `
+
+        const values = [
+            data.name,
+            data.avatar_url
+        ]
+
+        db.query(query, values, function(err, results) {
+            if(err) return res.send("Database Error!")
+
+            callback(results.rows[0])
+
+        })
+    
+    },
+
+}

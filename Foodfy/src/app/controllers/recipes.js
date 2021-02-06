@@ -1,15 +1,12 @@
-const db = require('../../config/db')
+const Recipe = require('../models/Recipe')
 
 module.exports = {
     index(req, res) {
 
-        db.query(`SELECT * FROM recipes`, function(err, results) {
-            if(err) return res.send("Database Error!")
-
-            return res.render("admin/recipes/index", {recipes: results.rows})
+        Recipe.all(function(recipes) {
+            return res.render("admin/recipes/index", { recipes })
 
         })
-
     },
     
     show(req, res) {
@@ -30,34 +27,12 @@ module.exports = {
             }
         }
 
-        const query = `
-            INSERT INTO recipes (
-                id,
-                image,
-                name,
-                title
-                ingredients,
-                preparation,
-                informationAdd
-            ) VALUES ($1, $2, $3, $4, $5, $6)
-            RETURNING id
-        `
-
-        const values = [
-            req.body.image,
-            req.body.name,
-            req.body.title,
-            req.body.ingredients,
-            req.body.preparation,
-            req.body.informationAdd
-        ]
-
-        db.query(query, values, function(err, results) {
-            if(err) return res.send("Database Error!")
-
-            return res.redirect(`/recipes/${results.rows[0].id}`)
+        Recipe.create(req.body, function(recipe) {
+            
+            return res.redirect(`/recipes/${recipe.id}`)
 
         })
+
         
     },
     

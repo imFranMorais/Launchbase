@@ -1,14 +1,12 @@
-const db = require('../../config/db')
+const Chef = require('../models/Chef')
 
 module.exports = {
     index(req, res) {
 
-        db.query(`SELECT * FROM chefs`, function(err, results) {
-            if(err) return res.send("Database Error!")
+        Chef.all(function(chefs) {
+            return res.render("admin/chefs/index", { chefs })
 
-            return res.render("admin/chefs/index", {chefs: results.rows})
-
-        })
+        })        
     },
     
     show(req, res) {
@@ -29,24 +27,8 @@ module.exports = {
             } 
         }
 
-        const query = `
-            INSERT INTO chefs (
-                name,
-                avatar_url
-            ) VALUES ($1, $2)
-            RETURNING id
-        `
-
-        const values = [
-            req.body.name,
-            req.body.avatar_url
-        ]
-
-        db.query(query, values, function(err, results) {
-            if(err) return res.send("Database Error!")
-
-            return res.redirect(`/chefs/${results.rows[0].id}`)
-
+        Chef.create(req.body, function(chef) {
+            return res.redirect(`/chefs/${chef.id}`)
         })
     },
     
