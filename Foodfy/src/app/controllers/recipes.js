@@ -17,7 +17,7 @@ module.exports = {
             recipes.ingredients = recipes.ingredients.split(",")
             recipes.preparation = recipes.preparation.split(",")
   
-            return res.render("recipes/show", {recipe})
+            return res.render("admin/recipes/show", {recipe})
   
         })
     },
@@ -38,7 +38,7 @@ module.exports = {
 
         Recipe.create(req.body, function(recipe) {
             
-            return res.redirect(`/recipes/${recipe.id}`)
+            return res.redirect(`/admin/recipes/${recipe.id}`)
 
         })
 
@@ -46,7 +46,12 @@ module.exports = {
     },
     
     edit(req, res) {
-        return
+        Recipe.find(req.params.id, function(recipe) {
+            if (!recipe) return res.send("Recipe not found!")
+  
+            return res.render("admin/recipes/edit", {recipe})
+  
+        })
     },
     
     put(req, res) {
@@ -59,7 +64,10 @@ module.exports = {
             }
         }
 
-        return
+        Recipe.update(req.body, function() {
+            return res.redirect(`/admin/recipes/${req.body.id}`)
+
+        })
     },
     
     delete(req, res) {

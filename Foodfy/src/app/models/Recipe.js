@@ -12,7 +12,6 @@ module.exports = {
     create(data, callback) {
         const query = `
             INSERT INTO recipes (
-                id,
                 image,
                 name,
                 title
@@ -50,5 +49,33 @@ module.exports = {
                 callback(results.rows[0])
         })
     },
+    update(data, callback) {
+        const query = `
+            UPDATE chefs SET
+                image=($1),
+                name=($2),
+                title=($3),
+                ingredients=($4),
+                preparation=($5),
+                informationAdd=($6)
+            WHERE id = $7
+        `
+
+        const values = [
+            data.image,
+            data.name,
+            data.title,
+            data.ingredients,
+            data.preparation,
+            data.informationAdd,
+            data.id
+        ]
+
+        db.query(query, values, function(err, results) {
+            if(err) return res.send("Database Error!")
+
+            callback()
+        })
+    }
 
 }

@@ -13,7 +13,7 @@ module.exports = {
       Chef.find(req.params.id, function(chef) {
           if (!chef) return res.send("Chef not found!")
 
-          return res.render("chefs/show", {chef})
+          return res.render("admin/chefs/show", {chef})
 
       })
     },
@@ -33,13 +33,18 @@ module.exports = {
         }
 
         Chef.create(req.body, function(chef) {
-            return res.redirect(`/chefs/${chef.id}`)
+            return res.redirect(`/admin/chefs/${chef.id}`)
         })
     },
     
     edit(req, res) {
-    
-        return
+
+        Chef.find(req.params.id, function(chef) {
+            if (!chef) return res.send("Chef not found!")
+  
+            return res.render("admin/chefs/edit", {chef})
+  
+        })
     },
     
     put(req, res) {
@@ -52,7 +57,10 @@ module.exports = {
             }
         }
 
-        return
+        Chef.update(req.body, function() {
+            return res.redirect(`/admin/chefs/${req.body.id}`)
+
+        })
     
     },
     
