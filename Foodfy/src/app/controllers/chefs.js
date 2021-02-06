@@ -10,7 +10,12 @@ module.exports = {
     },
     
     show(req, res) {
-      return
+      Chef.find(req.params.id, function(chef) {
+          if (!chef) return res.send("Chef not found!")
+
+          return res.render("chefs/show", {chef})
+
+      })
     },
     
     create(req, res) {

@@ -1,4 +1,5 @@
 const Recipe = require('../models/Recipe')
+const { recipes } = require('./site')
 
 module.exports = {
     index(req, res) {
@@ -10,7 +11,15 @@ module.exports = {
     },
     
     show(req, res) {
-        return
+        Recipe.find(req.params.id, function(recipe) {
+            if (!recipe) return res.send("Recipe not found!")
+
+            recipes.ingredients = recipes.ingredients.split(",")
+            recipes.preparation = recipes.preparation.split(",")
+  
+            return res.render("recipes/show", {recipe})
+  
+        })
     },
     
     create(req, res) {

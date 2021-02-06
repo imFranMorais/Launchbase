@@ -41,5 +41,14 @@ module.exports = {
         })
     
     },
+    find(id, callback) {
+        db.query(`
+            SELECT * 
+            FROM recipes 
+            WHERE id = $1`, [id], function(err, results) {
+                if(err) return res.send("Database Error!")
+                callback(results.rows[0])
+        })
+    },
 
 }
