@@ -2,7 +2,13 @@ const db = require('../../config/db')
 
 module.exports = {
     index(req, res) {
-        return res.render("admin/chefs/index")
+
+        db.query(`SELECT * FROM chefs`, function(err, results) {
+            if(err) return res.send("Database Error!")
+
+            return res.render("admin/chefs/index", {chefs: results.rows})
+
+        })
     },
     
     show(req, res) {
@@ -46,7 +52,8 @@ module.exports = {
     
     edit(req, res) {
     
-        return    },
+        return
+    },
     
     put(req, res) {
 
