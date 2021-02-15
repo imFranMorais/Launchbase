@@ -65,7 +65,9 @@ module.exports = {
     },
     
     delete(req, res) {
-        return
+        Chef.delete(req.body.id, function() {
+            return res.redirect(`/admin/chefs`)
+        })  
     }
 }
 
