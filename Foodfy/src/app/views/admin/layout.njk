@@ -7,7 +7,7 @@
             <title>Foodfy</title>
         {% endblock %}
 
-        <link href="/styles.css" rel="stylesheet">
+        <link href="/stylesAdmin.css" rel="stylesheet">
 
     </head>
 
@@ -17,12 +17,13 @@
             <div class="container -row">
 
                 <div class="logo">
-                    <a href="/admin/recipes/index"><img src="/image/logo.png" alt="logo foodfy"></a>
+                    {# <a href="/admin/recipes"><img src="/image/logo.png" alt="logo foodfy"></a> #}
+                    <a href="/">Foodfy</a>
                 </div>
 
                 <nav class="menu">
-                    <a href="admin/recipes" class="receitas">Receitas</a>
-                    <a href="/chefs" class="chefs">Chefs</a>
+                    <a href="/admin/recipes" class="receitas">RECEITAS</a>
+                    <a href="/admin/chefs" class="chefs">CHEFS</a>
                 </nav>
 
             </div>
@@ -39,7 +40,5 @@
     </body>
 
     <script src="/scripts.js"></script>
-
-    {# {% block script %}{% endblock %} #}
 
 </html>

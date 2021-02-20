@@ -35,14 +35,14 @@
 
             <div class="card">
                 <div class="card__image-container">
-                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
                 </div>
                 <div class="card__content">
-                    <p>{{recipe.title}}</p>
-                </div>
-                <div class="card__info">
                     <p>{{recipe.name}}</p>
                 </div>
+                {# <div class="card__info">
+                    <p>{{recipe.chef_id}}</p>
+                </div> #}
             </div>
 
         {% endfor %}

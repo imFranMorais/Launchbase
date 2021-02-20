@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ body { 
+    font-family: Roboto;
+    
+}
+
+.container { 
+    width: 80%;
+    display: flex;
+}
+
+.-column { 
+    flex-direction: column;
+}
+
+.-row { 
+    flex-direction: row;
+}
+
+main { 
+    justify-content: center;
+    display: flex;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    height: 80px; 
+    background-color: #111111;
+    
+}
+
+.logo {
+    padding-top: 25px;
+}
+
+.logo a {
+    font-family: Cochin;
+    color: #FFFFFF;
+    font-size: 28px;
+    letter-spacing: 1.65px;
+    line-height: 32px;
+    text-decoration: none;
+} 
+
+header .menu { 
+    margin-left: 122.4px;
+    margin-top: 38px;
+    
+}
+
+header .menu a + a { 
+    margin-left: 30px;
+}
+
+header .menu a { 
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: #999999;
+    text-decoration: none;
+}
+
+header .menu a.active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* === Admin/Recipes/Index === */
+.wrapper_recipes h2 {
+    padding: 50px 0 20px 0;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+    text-align: left;
+}
+
+.cards_recipes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px; 
+    box-sizing: border-box;
+    max-height: 140px;
+}
+
+.card_recipe {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 20px;
+
+}
+
+.card_recipe__image-container {
+    max-width: 172px;
+    max-height: 80px;
+}
+
+.card_recipe__image-container img {
+    border-radius: 8.57px;
+    width: 100%;
+    height: 100%;
+}
+
+.card_recipe__content {
+    display: grid;
+    grid-template-rows: 26px 26px 26px;
+}
+
+.card_recipe__content p {
+    color: #111111;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.card_recipe__content span {
+    color: #777777;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.card_recipe__content a {
+    color: #6558C3;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* === Admin/Recipes/Edit === */
+.edit_title {
+    display: grid;
+    grid-template-columns: 7fr 1fr 1fr;
+    padding: 50px 0 20px 0;
+}
+
+.wrapper_edit h2 {
+    margin: 3px auto;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+}
+
+form#form-delete {
+    margin-left: 80px;
+    margin-right: 10px;
+}
+
+button[type="submit"].save,
+button[type="submit"].delete {
+    font-weight: bold;
+    padding: 9px 20px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 19px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+button[type="submit"].save {
+    background-color: #6558C3;
+}
+
+button[type="submit"].delete {
+    background-color: #DC4747;
+}
+
+.details .item {
+    margin-bottom: 30px;
+}
+
+.details .item div:nth-child(1) {
+    font-size: 16px;
+    line-height: 19px;
+    color: #111111;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details .item div:nth-child(2) input,
+.details .item div:nth-child(2) select,
+.details .item #information textarea{
+    color:#111111;
+    font-size: 16px;
+    line-height: 19px;
+    width: 100%;
+    font-family: Roboto-Regular;
+    border: 1px solid #dddddd;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 15px 20px;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.details .item #information textarea{
+    height: 257px;
+}
+
+button.add-input {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #6558c3;
+    text-align: right;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+
+/* 
+
+
+/* 
+
+
+
+
+
+ === Admin/Recipes/Show === 
+
+#recipe_title {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 50px;
+}
+
+.admin-edit-title {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.admin-edit-title h3,
+#recipe_title h2{
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+}
+
+
+
+
+
+#recipe_image {
+    margin: 20px 0 50px 0;
+    text-align: center;
+}
+
+#recipe_image img {
+    border-radius: 15px;
+    width: 100%;
+    max-height: 280px;
+}
+
+#recipe_name {
+    text-align: center;
+}
+
+#recipe_name h1 {
+    font-weight: bold;
+    margin-bottom: 4px; 
+    font-size: 36px;
+    line-height: 42px;
+    color: #111111;  
+}
+
+#recipe_name p {
+    color: #777777;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 31px;
+}
+
+.topic {
+    margin-bottom: 41px;
+}
+
+.title {
+    display: flex;
+    margin-bottom: 19px;
+    justify-content: left;
+    text-align: center;
+}
+
+.content {
+    color: #444444;
+    font-size: 18px;
+    line-height: 28px;
+}
+ */

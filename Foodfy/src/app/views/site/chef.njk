@@ -13,17 +13,17 @@
 
 {% block content %}
 
-    <div id="chef-title">
-        <h2>Chef: {{chef.title}}</h2>
+    <div id="chef.name">
+        <h2>Chef: {{chef.name}}</h2>
     </div>
 
     <div id="chef_image">
         <img src="{{chef.image}}" alt="">
     </div>
 
-    <div id="chef_title">
-        <h1>{{chef.title}}</h1>
-        <p>AQUI DEVE APARECER O NUMERO DE RECEITAS</p>
+    <div id="chef.name">
+        <h1>{{chef.name}}</h1>
+        <p>{{chef.total_recipes}} receitas</p>
     </div>
 
     <div class="wrapper">
@@ -34,11 +34,11 @@
         {% for recipe in recipes %}
             <div class="card">
                 <div class="card__image-container">
-                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
                 </div>
                 <div class="card__content">
-                    <p>{{recipe.title}}</p>
-                    <span>por {{recipe.author}}</span>
+                    <p>{{recipe.name}}</p>
+                    {# <span>por {{recipe.chef_id}}</span> #}
                     <a href="/recipes/{{recipe.id}}">Visualizar</a>
                 </div>
             </div>

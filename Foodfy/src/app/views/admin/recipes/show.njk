@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div id="recipe-title">
-        <h2>Receita: {{recipe.title}}</h2>
+    <div id="recipe_title">
+        <h2>Receita: {{recipe.name}}</h2>
         <a href="/admin/recipes/{{recipe.id}}/edit" class="button">Editar receita</a>
     </div>
     
@@ -11,9 +11,9 @@
         <img src="{{recipe.image}}" alt="">
     </div>
 
-    <div id="recipe_title">
-        <h1>{{recipe.title}}</h1>
-        <p>por {{recipe.name}}</p>
+    <div id="recipe_name">
+        <h1>{{recipe.name}}</h1>
+        <p>por {{recipe.chef}}</p>
     </div>
 
     <section class="recipe">

@@ -13,7 +13,7 @@
 
     <div id="chef_name">
         <h1>{{chef.name}}</h1>
-        <p>AQUI DEVE APARECER O NUMERO DE RECEITAS</p>
+        <p>{{chef.total_recipes}} receitas</p>
     </div>
 
     <div class="wrapper">
@@ -24,10 +24,10 @@
         {% for recipe in recipes %}
             <div class="card">
                 <div class="card__image-container">
-                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
                 </div>
                 <div class="card__content">
-                    <p>{{recipe.title}}</p>
+                    <p>{{recipe.name}}</p>
                     <span>por {{recipe.name}}</span>
                     <a href="/recipes/{{recipe.id}}">Visualizar</a>
                 </div>

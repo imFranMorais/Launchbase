@@ -45,7 +45,7 @@ module.exports = {
             return res.render("admin/chefs/edit", {chef})
   
         })
-    },
+    }, 
     
     put(req, res) {
 

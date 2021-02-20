@@ -14,8 +14,8 @@ module.exports = {
         Recipe.find(req.params.id, function(recipe) {
             if (!recipe) return res.send("Recipe not found!")
 
-            recipes.ingredients = recipes.ingredients.split(",")
-            recipes.preparation = recipes.preparation.split(",")
+            // recipes.ingredients = recipes.ingredients.split(",")
+            // recipes.preparation = recipes.preparation.split(",")
   
             return res.render("admin/recipes/show", {recipe})
   
@@ -23,7 +23,9 @@ module.exports = {
     },
     
     create(req, res) {
-        return res.render("admin/recipes/create")
+        Recipe.chefsSelectOptions(function(options){
+            return res.render("admin/recipes/create", { chefOptions: options })
+        })  
     },
     
     post(req, res) {
@@ -46,10 +48,13 @@ module.exports = {
     },
     
     edit(req, res) {
+        
         Recipe.find(req.params.id, function(recipe) {
             if (!recipe) return res.send("Recipe not found!")
-  
-            return res.render("admin/recipes/edit", {recipe})
+
+            Recipe.chefsSelectOptions(function(options){
+                return res.render("admin/recipes/edit", { recipe, chefOptions: options })
+            })  
   
         })
     },

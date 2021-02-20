@@ -4,20 +4,20 @@
 
     <div class="card-container">
 
-        <div class="wrapper">
+        <div class="wrapper_recipes">
             <h2>Gerenciar receitas</h2>
         </div>
 
-        <section class="cards">
+        <section class="cards_recipes">
             {% for recipe in recipes %}
-                <div class="card">
-                    <div class="card__image-container">
-                        <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                <div class="card_recipe">
+                    <div class="card_recipe__image-container">
+                        <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
                     </div>
-                    <div class="card__content">
-                        <p>{{recipe.title}}</p>
-                        <span>por {{recipe.name}}</span>
-                        <a href="/recipes/{{recipe.id}}">Visualizar</a>
+                    <div class="card_recipe__content">
+                        <p>{{recipe.name}}</p>
+                        <span>por Fran Morais</span>
+                        <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                     </div>
                 </div>
             {% endfor %}
