@@ -32,3 +32,48 @@ for (item of menuItems) {
         item.classList.add("active")
     }
 }
+
+// Adiciona campos extras
+function addInput(event) {
+    const ingredients = document.querySelector('#ingredients')
+    const preparation = document.querySelector('#preparation')
+    const buttonName = event.target.name
+    const fieldCointainer = document.querySelectorAll(`.${buttonName}`)
+ 
+    // Clone do último ingrediente adicionado
+    const newField = fieldCointainer[ fieldCointainer.length - 1 ].cloneNode(true)
+
+    // Não add novo input se último estiver vazio
+    if (newField.children[0].value == "") return false
+
+    // Deixa o valor do input vazio
+    newField.children[0].value = ""
+    if (buttonName === 'ingredient') {
+        ingredients.appendChild(newField)
+    } else {
+        preparation.appendChild(newField)
+    }
+}
+
+document
+    .querySelectorAll(".add-input")
+    .forEach(button => button.addEventListener("click", addInput))
+
+
+const formDelete = document.querySelector("#form-delete")
+if (formDelete) {
+formDelete.addEventListener("submit", function (event) {
+    const confirmation = confirm("Deseja deletar?")
+    if (!confirmation) {
+        event.preventDefault()
+    }
+})
+}
+
+const formUpdate = document.querySelector("#form-update")
+const updateButton = document.querySelector("#update")
+if (formUpdate) {
+updateButton.addEventListener("click", function() {
+    formUpdate.submit()
+})
+}
