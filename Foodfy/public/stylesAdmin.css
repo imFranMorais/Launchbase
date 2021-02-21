@@ -135,7 +135,7 @@ header .menu a.active {
     text-decoration: none;
 }
 
-/* === Admin/Recipes/Edit === */
+/* === Admin/Recipes/Edit e Admin/Recipes/Create  === */
 .edit_title {
     display: grid;
     grid-template-columns: 7fr 1fr 1fr;
@@ -219,47 +219,37 @@ button.add-input {
 }
 
 
-
-/* 
-
-
-/* 
-
-
-
-
-
- === Admin/Recipes/Show === 
-
-#recipe_title {
+/* === Admin/Recipes/Show e Admin/Recipes/Create ===  */
+#recipe_title,
+.admin-create-title {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    margin-top: 50px;
+    grid-template-columns: 8fr 1fr;
+    padding: 50px 0 20px 0;
 }
 
-.admin-edit-title {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 10px;
-    margin-top: 50px;
-}
-
-.admin-edit-title h3,
-#recipe_title h2{
-    text-align: left;
+.admin-create-title,
+#recipe_title h2 {
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     color: #111111;
 }
 
-
-
-
+#recipe_title a {
+    font-weight: bold;
+    padding: 9px 20px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 19px;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #6558C3;
+    text-align: center;
+}
 
 #recipe_image {
-    margin: 20px 0 50px 0;
-    text-align: center;
+    margin-bottom: 50px;
 }
 
 #recipe_image img {
@@ -286,6 +276,37 @@ button.add-input {
     line-height: 24px;
     margin-bottom: 31px;
 }
+
+/* falta recipe content */
+
+
+
+
+/* 
+
+
+
+
+
+
+
+
+
+
+.admin-edit-title h3,
+#recipe_title h2{
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #111111;
+}
+
+
+
+
+
+
 
 .topic {
     margin-bottom: 41px;
