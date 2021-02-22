@@ -4,17 +4,17 @@
 
     <div class="card-container">
 
-        <div class="wrapper">
+        <div class="wrapper_chefs">
             <h2>Gerenciar chefs</h2>
         </div>
 
-        <section class="cards">
+        <section class="cards_chefs">
             {% for chef in chefs %}
-                <div class="card">
-                    <div class="card__image-container">
+                <div class="card_chef">
+                    <div class="card_chef__image-container">
                         <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.name}}">
                     </div>
-                    <div class="card__content">
+                    <div class="card_chef__content">
                         <p>{{chef.name}}</p>
                         <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
                     </div>

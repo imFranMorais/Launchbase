@@ -74,9 +74,10 @@ header .menu a.active {
     text-decoration: none;
 }
 
-/* === Admin/Recipes/Index === */
+/* === Admin/Recipes/Index e Admin/Chefs/Index === */
+.wrapper_chefs h2,
 .wrapper_recipes h2 {
-    padding: 50px 0 20px 0;
+    padding-top: 50px;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
@@ -84,19 +85,35 @@ header .menu a.active {
     text-align: left;
 }
 
+.wrapper_recipes h2 {
+    padding-bottom: 20px;
+}
+
+.wrapper_chefs h2 {
+    padding-bottom: 30px;
+}
+ 
+.cards_chefs,
 .cards_recipes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     column-gap: 20px; 
     box-sizing: border-box;
     max-height: 140px;
 }
 
+.cards_recipes {
+    grid-template-columns: 1fr 1fr;
+}
+
+.cards_chefs {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card_chef,
 .card_recipe {
     display: grid;
     grid-template-columns: 1fr 3fr;
     column-gap: 20px;
-
 }
 
 .card_recipe__image-container {
@@ -104,8 +121,19 @@ header .menu a.active {
     max-height: 80px;
 }
 
+.card_chef__image-container {
+    max-width: 64px;
+    max-height: 64px;
+}
+
 .card_recipe__image-container img {
     border-radius: 8.57px;
+    width: 100%;
+    height: 100%;
+}
+
+.card_chef__image-container img {
+    border-radius: 50%;
     width: 100%;
     height: 100%;
 }
@@ -115,6 +143,13 @@ header .menu a.active {
     grid-template-rows: 26px 26px 26px;
 }
 
+.card_chef__content {
+    display: grid;
+    grid-template-rows: 31px 32px;
+    padding-top: 1px;
+}
+
+.card_chef__content p,
 .card_recipe__content p {
     color: #111111;
     font-size: 18px;
@@ -127,6 +162,7 @@ header .menu a.active {
     line-height: 16px;
 }
 
+.card_chef__content a,
 .card_recipe__content a {
     color: #6558C3;
     font-size: 14px;
