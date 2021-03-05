@@ -256,13 +256,24 @@ button.add-input {
 
 
 /* === Admin/Recipes/Show e Admin/Recipes/Create ===  */
+#chef_title,
 #recipe_title,
 .admin-create-title {
     display: grid;
     grid-template-columns: 8fr 1fr;
-    padding: 50px 0 20px 0;
+    padding-top: 50px;
 }
 
+#recipe_title,
+.admin-create-title {
+    padding-bottom: 20px;
+}
+
+#chef_title {
+    padding-bottom: 42px;
+}
+
+#chef_title h2,
 .admin-create-title,
 #recipe_title h2 {
     font-weight: bold;
@@ -271,6 +282,7 @@ button.add-input {
     color: #111111;
 }
 
+#chef_title a,
 #recipe_title a {
     font-weight: bold;
     padding: 9px 20px;
@@ -288,16 +300,31 @@ button.add-input {
     margin-bottom: 50px;
 }
 
+#chef_image {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #recipe_image img {
     border-radius: 15px;
     width: 100%;
     max-height: 280px;
 }
 
+#chef_image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+#chef_name,
 #recipe_name {
     text-align: center;
 }
 
+#chef_name h1,
 #recipe_name h1 {
     font-weight: bold;
     margin-bottom: 4px; 
@@ -306,14 +333,23 @@ button.add-input {
     color: #111111;  
 }
 
+#chef_name p,
 #recipe_name p {
     color: #777777;
     font-size: 20px;
     line-height: 24px;
+}
+
+#recipe_name p {
     margin-bottom: 31px;
 }
 
+#chef_name p {
+    margin-bottom: 50px;
+}
+
 /* falta recipe content */
+/* falta chef cards */
 
 
 
