@@ -6,22 +6,25 @@
 
 {% block content %}
 
-    <section class="admin-edit-title">
-        <h3>Editando chef</h3>
+    <div class="chef_edit_title">
 
-    </span>
-    <form id="form-delete" method="POST" action="/admin/chefs?_method=DELETE">
-        <input type="hidden" name="id" value="{{ chef.id }}">
-        <button type="submit" class="delete">Deletar</button>
-    </form>
-    <span>
+        <div class="wrapper_edit">
+            <h2>Editando chef</h2>
+        </div>
+
+        <form id="form-delete" method="POST" action="/admin/chefs?_method=DELETE">
+            <input type="hidden" name="id" value="{{ chef.id }}">
+            <button type="submit" class="delete">Deletar</button>
+        </form>
+
         <span>
             <button id="update" type="submit" class="save">Salvar chef</button>
         </span>
-    </section>
+        
+    </div>
 
-    <form id="form-update" method="POST" action="/admin/chefs?_method=PUT" class="menu">
-        <input type="hidden" name="id" value="{{ chef.id }}">
+        <form id="form-update" method="POST" action="/admin/chefs?_method=PUT" class="menu">
+            <input type="hidden" name="id" value="{{ chef.id }}">
 
         <section class="details">
 

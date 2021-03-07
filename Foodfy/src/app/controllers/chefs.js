@@ -5,7 +5,6 @@ module.exports = {
 
         Chef.all(function(chefs) {
             return res.render("admin/chefs/index", { chefs })
-
         })        
     },
     

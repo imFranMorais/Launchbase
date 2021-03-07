@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <div class="edit_title">
+    <div class="recipe_edit_title">
 
         <div class="wrapper_edit">
             <h2>Editando receita</h2>
@@ -23,8 +23,8 @@
 
     </div>
 
-    <form id="form-update" method="POST" action="/admin/recipes?_method=PUT" class="menu">
-        <input type="hidden" name="id" value="{{ recipe.id }}">
+        <form id="form-update" method="POST" action="/admin/recipes?_method=PUT" class="menu">
+            <input type="hidden" name="id" value="{{ recipe.id }}">
 
         <section class="details">
 

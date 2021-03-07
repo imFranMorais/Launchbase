@@ -10,7 +10,7 @@ module.exports = {
         ORDER BY total_recipes DESC`, function(err, results) {
             if(err) throw `Database Error! ${err}`
 
-            callback(results.rows)
+            callback(results.rows) 
 
         })
     },
@@ -49,7 +49,7 @@ module.exports = {
         const query = `
             UPDATE chefs SET
                 name=($1),
-                avatar_url($2)
+                avatar_url=($2)
             WHERE id = $3
         `
 

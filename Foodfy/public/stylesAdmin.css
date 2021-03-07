@@ -49,12 +49,11 @@ header {
     letter-spacing: 1.65px;
     line-height: 32px;
     text-decoration: none;
-} 
+}
 
 header .menu { 
     margin-left: 122.4px;
     margin-top: 38px;
-    
 }
 
 header .menu a + a { 
@@ -107,6 +106,7 @@ header .menu a.active {
 
 .cards_chefs {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 30px;
 }
 
 .card_chef,
@@ -146,7 +146,7 @@ header .menu a.active {
 .card_chef__content {
     display: grid;
     grid-template-rows: 31px 32px;
-    padding-top: 1px;
+    padding-top: 10px;
 }
 
 .card_chef__content p,
@@ -172,23 +172,33 @@ header .menu a.active {
 }
 
 /* === Admin/Recipes/Edit e Admin/Recipes/Create  === */
-.edit_title {
+.chef_edit_title,
+.recipe_edit_title {
     display: grid;
-    grid-template-columns: 7fr 1fr 1fr;
-    padding: 50px 0 20px 0;
+    grid-template-columns: auto 94px 126px;
+    gap: 10px;
+    padding-top: 50px;
+    
+}
+
+.recipe_edit_title {
+    padding-bottom: 20px;
+}
+
+.chef_edit_title {
+    padding-bottom: 26px;
+}
+
+.wrapper_edit {
+    display: flex;
+    align-items: center;
 }
 
 .wrapper_edit h2 {
-    margin: 3px auto;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     color: #111111;
-}
-
-form#form-delete {
-    margin-left: 80px;
-    margin-right: 10px;
 }
 
 button[type="submit"].save,
@@ -260,9 +270,15 @@ button.add-input {
 #recipe_title,
 .admin-create-title {
     display: grid;
-    grid-template-columns: 8fr 1fr;
+    grid-template-columns: auto 145px;
     padding-top: 50px;
+} 
+
+.admin-create-title h3 {
+    display: flex;
+    align-items: center;
 }
+
 
 #recipe_title,
 .admin-create-title {
@@ -348,38 +364,6 @@ button.add-input {
     margin-bottom: 50px;
 }
 
-/* falta recipe content */
-/* falta chef cards */
-
-
-
-
-/* 
-
-
-
-
-
-
-
-
-
-
-.admin-edit-title h3,
-#recipe_title h2{
-    text-align: left;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-    color: #111111;
-}
-
-
-
-
-
-
-
 .topic {
     margin-bottom: 41px;
 }
@@ -396,4 +380,3 @@ button.add-input {
     font-size: 18px;
     line-height: 28px;
 }
- */

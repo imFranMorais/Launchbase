@@ -1,12 +1,10 @@
 const Recipe = require('../models/Recipe')
-const { recipes } = require('./site')
 
 module.exports = {
     index(req, res) {
 
         Recipe.all(function(recipes) {
             return res.render("admin/recipes/index", { recipes })
-
         })
     },
     
@@ -14,16 +12,17 @@ module.exports = {
         Recipe.find(req.params.id, function(recipe) {
             if (!recipe) return res.send("Recipe not found!")
 
-            // recipes.ingredients = recipes.ingredients.split(",")
-            // recipes.preparation = recipes.preparation.split(",")
-  
-            return res.render("admin/recipes/show", {recipe})
+            Recipe.chefsSelectOptions(recipe.chef_id, function(chef) {
+                recipe.chef = chef.name
+
+                return res.render("admin/recipes/show", {recipe})
+            })
   
         })
     },
     
     create(req, res) {
-        Recipe.chefsSelectOptions(function(options){
+        Recipe.chefsSelectOptions(null, function(options){
             return res.render("admin/recipes/create", { chefOptions: options })
         })  
     },
@@ -52,9 +51,10 @@ module.exports = {
         Recipe.find(req.params.id, function(recipe) {
             if (!recipe) return res.send("Recipe not found!")
 
-            Recipe.chefsSelectOptions(function(options){
-                return res.render("admin/recipes/edit", { recipe, chefOptions: options })
-            })  
+            Recipe.chefsSelectOptions(null, function(chefs) {
+
+                return res.render("admin/recipes/edit", {recipe, chefOptions: chefs})
+            })
   
         })
     },
