@@ -6,10 +6,11 @@ module.exports = {
         Chef.all(function(chefs) {
             return res.render("admin/chefs/index", { chefs })
         })        
-    },
+    }, 
     
     show(req, res) {
-      Chef.find(req.params.id, function(chef) {
+      
+        Chef.find(req.params.id, function(chef) {
           if (!chef) return res.send("Chef not found!")
 
           return res.render("admin/chefs/show", {chef})

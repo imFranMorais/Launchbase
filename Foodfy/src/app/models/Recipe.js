@@ -52,6 +52,8 @@ module.exports = {
             WHERE id = $1`, [id], function(err, results) {
                 if(err) throw `Database Error! ${err}`
                 callback(results.rows[0])
+
+                
         })
     },
     update(data, callback) {
@@ -65,7 +67,7 @@ module.exports = {
                 chef_id=($6)
             WHERE id = $7
         `
-
+ 
         const values = [
             data.image,
             data.name,
