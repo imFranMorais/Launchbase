@@ -3,16 +3,13 @@ const db = require('../../config/db')
 module.exports = {
     all(callback) {
         db.query(`
-        SELECT chefs.*, count(recipes) AS total_recipes 
-        FROM chefs
-        LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
-        GROUP BY chefs.id
-        ORDER BY total_recipes DESC`, function(err, results) {
+        SELECT *
+        FROM chefs`, function(err, results) {
             if(err) throw `Database Error! ${err}`
 
             callback(results.rows) 
 
-        }) 
+        })  
     },
     create(data, callback) {
         const query = `
@@ -38,15 +35,23 @@ module.exports = {
     },
     find(chefs_id, callback) {
         db.query(`
-        SELECT chefs.*, count(recipes) AS total_recipes 
-        FROM chefs
-        LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
-        WHERE chefs.id = $1
-        GROUP BY chefs.id
-        ORDER BY total_recipes DESC`, [chefs_id], function(err, results) {
+        SELECT chefs.* FROM chefs WHERE chefs.id = $1`, [chefs_id], function(err, results) {
             if(err) throw `Database Error! ${err}`
+            const chef = results.rows[0]
+            
+            db.query(`
+            SELECT recipes.* FROM recipes WHERE recipes.chef_id = $1
+            `, [chefs_id], function(err, results) {
+                if(err) throw `Database Error! ${err}`
+                
+                const recipes = results.rows
 
-            callback(results.rows[0]) 
+                chef.recipes = recipes
+                console.log(chef);
+
+                callback(chef)
+            })
+
         })
     },
     update(data, callback) {

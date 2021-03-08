@@ -14,15 +14,15 @@
 
     <div id="chef_name">
         <h1>{{chef.name}}</h1>
-        <p>{{chef.total_recipes}} receitas</p>
+        <p>{{chef.recipes.length}} receitas</p>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper_recipes">
         <h2>Receitas</h2>
     </div>
 
     <section class="cards_recipes">
-        {% for recipe in recipes %}
+        {% for recipe in chef.recipes %}
             <div class="card_recipe">
                 <div class="card_recipe__image-container">
                     <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
@@ -30,7 +30,7 @@
                 <div class="card_recipe__content">
                     <p>{{recipe.name}}</p>
                     <span>por
-                        {{recipe.chef}}</span>
+                        {{chef.name}}</span>
                     <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                 </div>
             </div>

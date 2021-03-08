@@ -85,8 +85,10 @@ header .menu a.active {
 }
 
 .wrapper_recipes h2 {
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
+
+
 
 .wrapper_chefs h2 {
     padding-bottom: 30px;
@@ -103,6 +105,7 @@ header .menu a.active {
 .cards_recipes {
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
+    margin-bottom: 50px;
 }
 
 .cards_chefs {
@@ -386,10 +389,6 @@ button.add-input {
 
 #recipe_name p {
     margin-bottom: 31px;
-}
-
-#chef_name p {
-    margin-bottom: 50px;
 }
 
 .topic {
