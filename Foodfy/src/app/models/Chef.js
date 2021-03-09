@@ -47,7 +47,6 @@ module.exports = {
                 const recipes = results.rows
 
                 chef.recipes = recipes
-                console.log(chef);
 
                 callback(chef)
             })

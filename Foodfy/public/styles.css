@@ -6,54 +6,41 @@
     border: 0;
 }
 
- body { /* tela inteira */
+ body {
     font-family: Roboto;
     
 }
 
-.container { /*{ header e main */ 
+.container { 
     width: 80%;
     display: flex;
 }
 
-.-column { /*main */
+.-column { 
     flex-direction: column;
 }
 
-.-row { /* header */
+.-row {
     flex-direction: row;
 }
 
- main { /*main */
+header .container {
+    display: grid;
+    grid-template-columns: 213px auto 1fr;
+    align-items: center;
+    height: 80px;
     justify-content: center;
-    display: flex;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
-header {/* header */
-    display: flex;
-    justify-content: center;
-    height: 80px; 
-    
+header .container .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
 }
 
-header .logo img { /* imagem index */
-    margin-top: 36.1px;
-    text-align: left;
-    width: 90.6px;
-    height: 26.9px;
-}
-
-header .menu { /* links menu */
-    margin-left: 122.4px;
-    margin-top: 38px;
-    
-}
-
-header .menu a + a { 
-    margin-left: 30px;
-}
-
-header .menu a { /* texto links menu */
+header .menu a {
     font-size: 16px;
     line-height: 19px;
     color: #111111;
@@ -64,6 +51,44 @@ header .menu a.active {
     font-weight: bold;
 }
 
+header .menu a + a { 
+    margin-right: 30px;
+}
+
+header .filter {
+    text-align: right;
+}
+
+header .filter form input {
+    padding: 11px 110px 10px 15px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    box-sizing: border-box;
+    line-height: 16px;
+    font-size: 14px;
+    color: #999999;
+}
+
+header .filter form button {
+    font-weight: bold;
+    padding: 9px 20px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 19px;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #6558C3;
+    margin-left: 8px;
+}
+
+
+
+main {
+    justify-content: center;
+    display: flex;
+}
 #introduction {/* parte rosa da página inicial */
     margin-top: 36px;
     background-color: #FBDFDB;
@@ -105,8 +130,8 @@ header .menu a.active {
     padding-left: 248px;    
 }
 
-.wrapper h2 { /* mais acessadas */
-    padding: 50px 0 20px 0;
+.wrapper_recipes h2 {
+    padding: 50px 0 30px 0;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
@@ -114,47 +139,95 @@ header .menu a.active {
     text-align: left;
 }
 
-.cards,
-.recipes_cards {
+.cards_recipes,
+.cards_chefs {
+    padding-top: 50px;
+}
+
+.cards_chefs,
+.cards_recipes {
     display: grid;
+    column-gap: 20px; 
+    box-sizing: border-box;
+}
+
+.cards_recipes {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    
+    gap: 30px 20px;
+    margin-bottom: 50px;
 }
 
-.card {
+.cards_chefs {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 30px;
+}
+
+.card_recipe {
     display: grid;
+    grid-template-rows: 140px auto;
+    row-gap: 20px;
 }
 
-.card__image-container img {
-    width: 100%;
+.card_chef {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    column-gap: 20px;
+}
+
+.card_recipe__image-container {
     max-height: 140px;
-    border-radius: 15px;
 }
 
-.card__content p {
-    padding: 20px 0 5px 0;
+.card_chef__image-container {
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.card_recipe__image-container img {
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.card_chef__image-container img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.card_recipe__content {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.card_chef__content {
+    display: grid;
+    grid-template-rows: 31px 32px;
+    padding-top: 10px;
+}
+
+.card_chef__content p,
+.card_recipe__content p {
     color: #111111;
     font-size: 18px;
     line-height: 21px;
-    text-align: left;
 }
 
-.card__info {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-}
-
-.card__info p {
-    padding-bottom: 30px;
+.card_chef__content span,
+.card_recipe__content span {
     color: #777777;
     font-size: 14px;
     line-height: 16px;
-    text-align: left;
 }
 
+.cards_chefs#chefs
+.cards_recipes#recipes {
+    padding-top: 50px;
+}
+
+
 footer {
+    margin-top: 200px;
     background-color: #EEEEEE;
     height: 62px;
     width: 100%;
@@ -170,10 +243,6 @@ footer p {
 }
 
 /* === PAGE ABOUT === */
-.logo-text {
-    padding-top: 30px;
-}
-
 .logo-text a {
     font-family: Cochin;
     color: #111111;
@@ -211,81 +280,4 @@ main #receitas p {
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
-}
-
-/* === RECIPES === */
-
-main .recipes_cards {
-    padding-top: 50px;
-}
-
-/* === RECIPE === */
-#recipe_image {
-    margin-top: 36px;
-    text-align: center;
-}
-
-#recipe_image img {
-    border-radius: 15px;
-    width: 100%;
-}
-
-#recipe_title {
-    text-align: center;
-    margin-top: 50px;
-
-}
-
-#recipe_title h1 {
-    font-weight: bold;
-    margin-bottom: 4px; 
-    font-size: 36px;
-    line-height: 42px;
-    color: #111111;  
-}
-
-#recipe_title p {
-    color: #777777;
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 50px;
-}
-
-.topic {
-    margin-bottom: 39px;
-}
-
-.title {
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: left;
-    text-align: center;
-
-}
-
-.title h2{
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-    color: #111111;
-    
-}
-
-.title span {
-    margin-left: 8px;
-    font-weight: bold;
-    color: #999999;
-    font-size: 12px;
-    line-height: 14px;
-    padding-top: 7px;
-}
-
-.content.hidden {
-    display: none;
-}
-
-.content {
-    color: #444444;
-    font-size: 18px;
-    line-height: 28px;
 }

@@ -11,10 +11,12 @@
 {% endblock %}
 
 {% block filter %}
-    <form action="/recipes" method="GET">
-        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter}}>
-        <button type="submit">Buscar</button>
-    </form>
+    <div class="filter">
+        <form action="/site/recipes" method="GET">
+            <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter} }="}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -25,27 +27,26 @@
         <p>Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.</p>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper_recipes">
         <h2>Mais acessadas</h2>
     </div>
 
     <section class="cards">
 
-        {% for recipe in recipes %}
-
-            <div class="card">
-                <div class="card__image-container">
-                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
+        <section class="cards_recipes">
+            {% for recipe in recipes %}
+                <div class="card_recipe">
+                    <div class="card_recipe__image-container">
+                        <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
+                    </div>
+                    <div class="card_recipe__content">
+                        <p>{{recipe.name}}</p>
+                        <span>por
+                            {{recipe.chef}}</span>
+                    </div>
                 </div>
-                <div class="card__content">
-                    <p>{{recipe.name}}</p>
-                </div>
-                {# <div class="card__info">
-                    <p>{{recipe.chef_id}}</p>
-                </div> #}
-            </div>
-
-        {% endfor %}
+            {% endfor %}
+        </section>
 
     </section>
 

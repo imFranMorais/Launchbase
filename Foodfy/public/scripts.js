@@ -1,11 +1,11 @@
-// lembrar o que siginifica esse primeiro
-const cards = document.querySelectorAll('.card')
-for (let i = 0; i < cards.length; i++) {
-    const recipe = cards[i]
-    recipe.addEventListener('click', () => {
-        window.location.href = `/site/recipe/${i}`
-    })
-}
+// abre receita ao clicar no card
+// const cards = document.querySelectorAll('.card')
+// for (let i = 0; i < cards.length; i++) {
+//     const recipe = cards[i]
+//     recipe.addEventListener('click', () => {
+//         window.location.href = `/site/recipe/${i}`
+//     })
+// }
 
 // script para esconder ou mostrar partes da receita
 const topics = document.querySelectorAll(".topic")

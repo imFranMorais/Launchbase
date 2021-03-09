@@ -11,34 +11,29 @@
 {% endblock %}
 
 {% block filter %}
-    <form action="/recipes" method="GET">
-        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter}}>
-        <button type="submit">Buscar</button>
-    </form>
+    <div class="filter">
+        <form action="/site/recipes" method="GET">
+            <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter}}>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
 {% endblock %}
- 
+
 {% block content %}
+    <section class="cards_recipes" id="recipes">
+        {% for recipe in recipes %}
+            <div class="card_recipe">
+                <div class="card_recipe__image-container">
+                    <img src="{{recipe.image}}" alt="Imagem de {{recipe.name}}">
+                </div>
+                <div class="card_recipe__content">
+                    <p>{{recipe.name}}</p>
+                    <span>por
+                        {{recipe.chef}}</span>
+                    <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 
-            <section class="recipes_cards">
-                {% for recipe in recipes%}
-                    <div class="card" id="{{recipe.image}}">
-                        <div class="card__image-container">
-                            <img src="{{recipe.image}}" alt="imagem de {{recipe.name}}">
-                        </div>
-                        <div class="card__content">
-                            <p>{{recipe.name}}</p>
-                        </div>
-                        {# <div class="card__info">
-                            <p>{{recipe.chef_id}}</p>
-                        </div> #}
-                    </div>
-                {% endfor %}
-            </section>
-            
 {% endblock %}
-
-{# {% block script %}
-
-    <script src="scripts.js"></script>
-
-{% endblock %} #}

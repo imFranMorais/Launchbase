@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,7 @@
 
  body { 
     font-family: Roboto;
-    
+ 
 }
 
 .container { 
@@ -88,8 +87,6 @@ header .menu a.active {
     padding-bottom: 30px;
 }
 
-
-
 .wrapper_chefs h2 {
     padding-bottom: 30px;
 }
@@ -112,7 +109,6 @@ header .menu a.active {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 30px;
 }
-
 
 .card_recipe {
     display: grid;

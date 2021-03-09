@@ -2,16 +2,19 @@
 <html>
 
     <head>
+
         {% block head %}
             <title>Foodfy</title>
         {% endblock %}
 
         <link href="/styles.css" rel="stylesheet">
+
     </head>
 
     <body>
+
         <header>
-            <div class="container -row">
+            <div class="container -column">
 
                 {% block logoImg %}{% endblock %}
 
@@ -44,7 +47,5 @@
     </footer>
 
     <script src="/scripts.js"></script>
-
-    {# {% block script %}{% endblock %} #}
 
 </html>

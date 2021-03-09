@@ -12,26 +12,19 @@
 
 {% block content %}
 
-    <section class="chefs_cards">
-        {% for item in items%}
-            <div class="card" id="{{item.image}}">
-                <div class="card__image-container">
-                    <img src="{{item.image}}" alt="imagem de {{item.title}}">
+    <section class="cards_chefs" id="chefs">
+        {% for chef in chefs %}
+            <div class="card_chef">
+                <div class="card_chef__image-container">
+                    <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.name}}">
                 </div>
-                <div class="card__info">
-                    <p>{{item.author}}</p>
-                </div>
-                <div class="card__recipes">
-                    <p>APARECER QUANTIDADE DE RECEITAS</p>
+                <div class="card_chef__content">
+                    <p>{{chef.name}}</p>
+                    <span>{{chef.recipes.length}}
+                        receitas</span>
                 </div>
             </div>
         {% endfor %}
     </section>
 
 {% endblock %}
-
-{# {% block script %}
-
-    <script src="scripts.js"></script>
-
-{% endblock %} #}
