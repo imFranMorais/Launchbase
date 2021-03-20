@@ -18,7 +18,6 @@ module.exports = {
     },
 
     async post(req, res) {
-        // Lógica de salvar
         const keys = Object.keys(req.body)
 
         for (key of keys) {
