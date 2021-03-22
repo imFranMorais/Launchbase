@@ -14,8 +14,6 @@ module.exports = {
         }).catch(function(err) {
             throw new Error(err)
         })
-
-
     },
 
     async post(req, res) {
@@ -31,12 +29,9 @@ module.exports = {
         const productId = results.rows[0].id
 
         return res.redirect(`/products/${productId}`)
-
-
     },
 
     async edit(req, res) {
-        
         let results = await Product.find(req.params.id)
         const product = results.rows[0]
 
@@ -49,8 +44,6 @@ module.exports = {
         const categories = results.rows
 
         return res.render("products/edit.njk", { product, categories })
-
-
     },
 
     async put(req, res) {
@@ -72,6 +65,11 @@ module.exports = {
         await Product.update(req.body)
 
         return res.redirect(`/products/${req.body.id}/edit`)
+    },
 
+    async delete(req, res) {
+        await Product.delete(req.body.id)
+
+        return res.redirect('/products/create')
     }
 }

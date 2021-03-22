@@ -15,10 +15,12 @@
                 type="hidden"
                 name="id"
                 value={{product.id}}
-            >
+            >   
         </div>
 
         <button class="button edit" type="submit">Atualizar</button>
+
+    </form>
 
         <form id="form-delete" action="/products?_method=DELETE" method="post">
             <input type="hidden" name="id" value={{product.id}}>
@@ -35,8 +37,6 @@
             })
         </script>
 
-
-    </form>
 </section>
 
 {% endblock content %}
