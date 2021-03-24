@@ -38,6 +38,7 @@ const PhotosUpload = {
     },
     hasLimit(event) {
         const { uploadLimit } = PhotosUpload
+        const { files: fileList } = event.target
 
         if (fileList.length > uploadLimit) {
             alert(`Envie no máximo ${uploadLimit} fotos!`)
@@ -50,10 +51,24 @@ const PhotosUpload = {
         const div = document.createElement('div')
         div.classList.add('photo')
 
-        div.onclick = () => alert('remover foto')
+        div.onclick = PhotosUpload.removePhoto
 
         div.appendChild(image)
+        div.appendChild(PhotosUpload.getRemoveButton())
 
         return div
+    },
+    getRemoveButton() {
+        const button = document.createElement('i')
+        button.classList.add('material-icons')
+        button.innerHTML = "close"
+        return button
+    },
+    removePhoto(event) {
+        const photoDiv = event.target.parentNode
+        const photosArray = Array.from(PhotosUpload.preview.children)
+        const index = photosArray.indexOf(photoDiv)
+
+        photoDiv.remove()
     }
 }
