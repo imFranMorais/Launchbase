@@ -27,6 +27,10 @@ const PhotosUpload = {
             return
         }
 
-        
+        Array.from(fileList).forEach(file => {
+            
+        })
+
+
     }
 }
