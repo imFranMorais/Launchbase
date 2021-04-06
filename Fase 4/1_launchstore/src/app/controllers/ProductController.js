@@ -33,12 +33,8 @@ module.exports = {
         const productId = results.rows[0].id
 
         
-        req.files.forEach(file => {
-            await File.create({
-                ...file, 
-                product_id: productId
-            })
-        })
+        const filesPromise = req.files.map(file => File.create({...file, product_id: product_id}))
+        await Promise.all(filesPromise)
 
         return res.redirect(`/products/${productId}`)
     },
