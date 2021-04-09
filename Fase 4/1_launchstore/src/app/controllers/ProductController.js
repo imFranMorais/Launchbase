@@ -60,10 +60,10 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
 
-        return res.render("products/edit.njk", { product, categories })
+        return res.render("products/edit.njk", { product, categories, files })
     },
 
-    async put(req, res) {
+    async put(req, res) { 
         const keys = Object.keys(req.body)
 
         for (key of keys) {
