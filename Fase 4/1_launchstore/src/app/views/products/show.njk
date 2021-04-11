@@ -2,41 +2,57 @@
 
 {% block content %}
 
-<section class="product-single container">
+    <section class="product-single container">
 
-    <div class="gallery">
-        <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" />
+        <div class="gallery">
+            <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO"/>
 
-    </div>
-
-    <div class="info">
-        <h1>Computador</h1>
-
-        <div class="published">
-            Publicado em 18/12 as 21h
         </div>
 
-        <div class="description">
-            odslfnlsdnflds
-        </div>
+        <div class="info">
+            <h1>{{product.name}}</h1>
 
-        <div class="price-buy">
-            <div class="price">
-                R$ 99,99
-                <span class="old">
-                    R$ 89,99
-                </span>
+            <div class="published">
+                Publicado em
+                {{product.published.day}}
+                às
+                {{product.published.hour}}
             </div>
 
-            <div class="buy">
-                <button class="button">
-                    Comprar
-                </button>
+            <div class="description">
+                {{product.description}}
             </div>
-            
-        </div>
-            
-    </div>
 
-</section>
+            <div class="price-buy">
+                <div class="price">
+                    {{product.price}}
+
+                    {% if product.price !== product.oldPrice %}
+                        <span class="old">
+                            {{product.oldPrice}}
+                        </span>
+                    {% endif %}
+                </div>
+
+                <div class="buy">
+                    {% if product.status == 0 %}
+                        <p class="unavailable">
+                            Indisponível
+                        </p>
+                    {% elseif product.quantity == 0 %}
+                        <p class="unavailable">
+                            Fora de Estoque
+                        </p>
+                    {% else %}
+                        <button class="button">
+                            Comprar
+                        </button>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 {% endblock content %}
