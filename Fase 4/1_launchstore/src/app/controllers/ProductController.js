@@ -40,7 +40,7 @@ module.exports = {
     },
 
     show(req, res) {
-        return res.render("/products/show")
+        return res.render("products/show")
     },
 
     async edit(req, res) {
