@@ -11,8 +11,15 @@
 {% endblock %}
 
 {% block filter %}
-    <form action="/recipes" method="GET">
-        <input type="text" name="filter" placeholder="Buscar uma receita" value={{filter} }="}">
+    <form class="search" method="GET" action="/recipes/search" >
+        <input 
+            type="text" 
+            name="filter" 
+            placeholder="Buscar uma receita" 
+            {% if search.term %}
+                value={{search.term}}
+            {% endif %}
+        >
         <button type="submit">Buscar</button>
     </form>
 {% endblock %}
