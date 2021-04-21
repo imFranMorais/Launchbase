@@ -77,7 +77,7 @@ nav.primary ul li a:hover {
     color: #FFF;
 }
 
-header.primary ul li a.active {
+nav.primary ul a.active {
     color: #FFF;
 }
 

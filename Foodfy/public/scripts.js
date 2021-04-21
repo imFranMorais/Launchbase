@@ -25,7 +25,7 @@ for (let topic of topics) {
 
 // script para menu ativo
 const currentPage = location.pathname
-const menuItems = document.querySelectorAll("header .menu a")
+const menuItems = document.querySelectorAll("header .primary ul li a")
 
 for (item of menuItems) {
     if (currentPage.includes(item.getAttribute("href"))) {
