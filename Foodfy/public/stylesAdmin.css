@@ -23,6 +23,13 @@ body {
  
 }
 
+.container { 
+    width: 90%;
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+/* HEADER */
 header {
     background-color: #111111;
     color: #fff;
@@ -35,7 +42,8 @@ header {
 
 header div.container {
     display: grid;
-    grid-template-columns: 372px auto;
+    grid-template-columns: 90.6px auto;
+    column-gap: 50.4px;
     align-items: center;
 }
 
@@ -43,6 +51,7 @@ header div.container a {
     justify-self: start;
 }
 
+/* PRIMARY MENU */
 nav.primary ul {
     display: flex;
     justify-content: left;
@@ -52,54 +61,27 @@ nav.primary ul li {
     padding-right: 25px;
     align-items: center;
 }
-/* 
-.container { 
-    width: 80%;
-    display: flex;
-}
 
-.-column { 
-    flex-direction: column;
-}
-
-.-row { 
-    flex-direction: row;
-}
-
-main { 
-    justify-content: center;
-    display: flex;
-}
-
-
-
-.logo {
-    padding-top: 25px;
-}
-
-
-
-header .menu { 
-    margin-left: 122.4px;
-    margin-top: 38px;
-}
-
-header .menu a + a { 
-    margin-left: 30px;
-}
-
-header .menu a { 
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
+nav.primary ul li a {
     color: #999999;
-    text-decoration: none;
+
+    font-size: 15px;
+    line-height:18px;
+
+    text-align: left;
+
+    transition: 200ms;
 }
 
-header .menu a.active {
-    color: #FFFFFF;
-    text-decoration: none;
-} */
+nav.primary ul li a:hover {
+    color: #FFF;
+}
+
+header.primary ul li a.active {
+    color: #FFF;
+}
+
+
 
 /* === Admin/Recipes/Index e Admin/Chefs/Index === */
 /* .wrapper_chefs h2,
