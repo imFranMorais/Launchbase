@@ -92,8 +92,34 @@ section.form .header h3 {
     color: #111;
 
     margin-bottom: 26px;
-
 }
+
+form .item {
+    margin-bottom: 30px;
+}
+
+form .item > div:nth-child(1) {
+    font-size: 16px;
+    line-height: 19px;
+    color: #111;
+}
+
+form .item input[type="text"],
+form .item textarea,
+form .item select {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+
+    font-size: 16px;
+    line-height: 19px;
+    color: #999;
+}
+
 
 
 /* === Admin/Recipes/Index e Admin/Chefs/Index === */

@@ -33,7 +33,6 @@
                     <input 
                         type="text" 
                         name="name" 
-                        placeholder="Nome da receita"
                         value="{{ recipe.name }}"
                     >
                 </div>
@@ -45,12 +44,12 @@
                 {% if recipe.ingredients.length > 0 %}
                     {% for ingredient in recipe.ingredients %}
                         <div class="ingredient">
-                            <input  type="text" name="ingredients[]" placeholder="Ingrediente" value="{{ ingredient }}">
+                            <input  type="text" name="ingredients[]" value="{{ ingredient }}">
                         </div>
                     {% endfor %}
                 {% else %}
                         <div class="ingredient">
-                            <input  type="text" name="ingredients[]" placeholder="Ingrediente">
+                            <input  type="text" name="ingredients[]">
                         </div>
                 {% endif %}
                 </div>
@@ -67,7 +66,6 @@
                         <input 
                             type="text" 
                             name="preparation[]"
-                            placeholder="Passo"
                             value="{{ step }}"
                         >
                     </div>
@@ -77,7 +75,6 @@
                         <input 
                             type="text" 
                             name="preparation[]"
-                            placeholder="Passo"
                         >
                     </div>
                 {% endif    %}
