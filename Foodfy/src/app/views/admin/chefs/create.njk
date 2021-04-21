@@ -6,7 +6,24 @@
 
 {% block content %}
 
-    <form id="update" method="POST" action="/admin/chefs" class="menu">
+    <section class="container form">
+        <form method="POST" action="/admin/chefs">
+            <div class="header">
+                <h3>Criando chef</h3>
+            </div>
+
+            <div class="fields">
+                {% include 'admin/chefs/fields.njk' %}
+            </div>
+           
+                {# <span>
+                    <button id="update" type="submit" class="save">Salvar chef</button>
+                </span> #}
+        </form>
+    </section>
+    
+
+    {# <form id="update" method="POST" action="/admin/chefs" class="menu">
         <section class="chef-create-title" id="chefs">
             <h3>Criando chef</h3>
 
@@ -18,6 +35,6 @@
         <section class="details">
             {% include 'admin/chefs/fields.njk' %}
         </section>
-    </form>
+    </form> #}
 
 {% endblock content %}
