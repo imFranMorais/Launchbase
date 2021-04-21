@@ -5,7 +5,7 @@ module.exports = {
         db.query(`
         SELECT 
             r.id, r.chef_id, r.name AS name, r.information, r.ingredients, r.preparation,
-            c.id AS id_chef, c.name AS chef, c.avatar_url 
+            c.id AS id_chef, c.name AS chef
         FROM recipes AS r INNER JOIN chefs AS c ON c.id = r.chef_id
         ORDER BY r.name ASC`, function(err, results) {
             if(err) throw `Database Error! ${err}`

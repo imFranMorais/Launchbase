@@ -1,16 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+    --primary-color: ##6558C3;
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style-type: none;
 }
 
- body { 
-    font-family: Roboto;
+html, body {
+    min-height: 100vh;
+}
+
+body { 
+    font-family: 'Helvetica', sans-serif;
  
 }
 
+header {
+    background-color: #111111;
+    color: #fff;
+
+    width: 100%;
+    padding: 25px 0;
+
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    height: 80px;  */    
+}
+
+header div.container {
+    display: grid;
+    grid-template-columns: 372px auto;
+    align-items: center;
+}
+
+header div.container a {
+    justify-self: start;
+}
+
+
+
+/* 
 .container { 
     width: 80%;
     display: flex;
@@ -29,26 +67,13 @@ main {
     display: flex;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    height: 80px; 
-    background-color: #111111;
-    
-}
+
 
 .logo {
     padding-top: 25px;
 }
 
-.logo a {
-    font-family: Cochin;
-    color: #FFFFFF;
-    font-size: 28px;
-    letter-spacing: 1.65px;
-    line-height: 32px;
-    text-decoration: none;
-}
+
 
 header .menu { 
     margin-left: 122.4px;
@@ -70,10 +95,10 @@ header .menu a {
 header .menu a.active {
     color: #FFFFFF;
     text-decoration: none;
-}
+} */
 
 /* === Admin/Recipes/Index e Admin/Chefs/Index === */
-.wrapper_chefs h2,
+/* .wrapper_chefs h2,
 .wrapper_recipes h2 {
     padding-top: 50px;
     font-weight: bold;
@@ -178,7 +203,7 @@ header .menu a.active {
 }
 
 /* === Admin/Recipes/Edit e Admin/Recipes/Create  === */
-
+/*
 .chef_edit_title,
 .recipe_edit_title {
     display: grid;
@@ -276,11 +301,11 @@ button.add-input {
     text-align: right;
     background-color: #FFFFFF;
     cursor: pointer;
-}
+}*/
 
 
 /* === Admin/Recipes/Show e Admin/Recipes/Create ===  */
-#chef_title,
+/*#chef_title,
 #recipe_title,
 .chef-create-title,
 .recipe-create-title {
@@ -402,4 +427,4 @@ button.add-input {
     color: #444444;
     font-size: 18px;
     line-height: 28px;
-}
+} */
