@@ -31,9 +31,6 @@ header {
     padding: 25px 0;
 
     text-align: center;
-    /* display: flex;
-    justify-content: center;
-    height: 80px;  */    
 }
 
 header div.container {
@@ -46,8 +43,15 @@ header div.container a {
     justify-self: start;
 }
 
+nav.primary ul {
+    display: flex;
+    justify-content: left;
+}
 
-
+nav.primary ul li {
+    padding-right: 25px;
+    align-items: center;
+}
 /* 
 .container { 
     width: 80%;
