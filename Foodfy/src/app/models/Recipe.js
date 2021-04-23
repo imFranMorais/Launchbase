@@ -14,35 +14,27 @@ module.exports = {
 
         })
     },
-    create(data, callback) { 
+    create(data) { 
         const query = `
             INSERT INTO recipes (
-                image,
+                chef_id,
                 name,
-                ingredients,
-                preparation,
                 information,
-                chef_id
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+                ingredients,
+                preparation
+            ) VALUES ($1, $2, $3, $4, $5)
             RETURNING id
         `
 
         const values = [
-            data.image,
+            data.chef,
             data.name,
+            data.information,
             data.ingredients,
             data.preparation,
-            data.information,
-            data.chef
         ]
 
-        db.query(query, values, function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            callback(results.rows[0])
-
-
-        })
+        return db.query(query, values)
     
     },
     find(id, callback) {

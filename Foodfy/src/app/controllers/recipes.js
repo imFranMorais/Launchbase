@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     
-    post(req, res) {
+    async post(req, res) {
     
         const keys = Object.keys(req.body)
     
@@ -45,13 +45,14 @@ module.exports = {
             }
         }
 
-        Recipe.create(req.body, function(recipe) {
-            
-            return res.redirect(`/admin/recipes/${recipe.id}`)
+        let results = await Recipe.create(req.body)
+        const recipeId = results.rows[0].id
 
-        })
+        results = await Chef.all()
+        const chefOptions = results.rows
 
-        
+        return res.render("admin/recipes/create.njk", {chefOptions, recipeId})
+
     },
     
     edit(req, res) {
