@@ -1,12 +1,12 @@
 CREATE TABLE "chefs" (
   "id" SERIAL PRIMARY KEY,
   "name" text NOT NULL,
-  "file_id" int UNIQUE
+  "file_id" int 
 );
 
 CREATE TABLE "recipes" (
   "id" SERIAL PRIMARY KEY,
-  "chef_id" int UNIQUE,
+  "chef_id" int,
   "name" text NOT NULL,
   "information" text NOT NULL,
   "ingredients" text[] NOT NULL,
@@ -21,8 +21,8 @@ CREATE TABLE "files" (
 
 CREATE TABLE "recipe_files" (
   "id" SERIAL PRIMARY KEY,
-  "recipe_id" int UNIQUE,
-  "file_id" int UNIQUE
+  "recipe_id" int,
+  "file_id" int
 );
 
 ALTER TABLE "chefs" ADD FOREIGN KEY ("file_id") REFERENCES "files" ("id");
