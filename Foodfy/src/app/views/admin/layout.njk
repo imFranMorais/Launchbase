@@ -15,13 +15,8 @@
 
         {% include "./parts/header.njk" %}
 
-        <main>
-            <div class="container -column">
+        {% block content %}{% endblock %}
 
-                {% block content %}{% endblock %}
-
-            </div>
-        </main>
 
     </body>
 

@@ -8,16 +8,16 @@
 
     <section class="container form">
         <form method="POST" action="/admin/chefs">
+            
             <div class="header">
                 <h3>Criando chef</h3>
+                <button class="button" type="submit">Salvar chef</button>
             </div>
 
             <div class="fields">
                 {% include 'admin/chefs/fields.njk' %}
             </div>
-           
-            <button type="submit">Salvar chef</button>
-                
+     
         </form>
     </section>
     

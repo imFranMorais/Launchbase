@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-    --primary-color: ##6558C3;
+    --primary-color: #6558C3;
 }
 
 * {
@@ -20,6 +20,9 @@ html, body {
 
 body { 
     font-family: 'Helvetica', sans-serif;
+
+    display: flex;
+    flex-direction: column;
  
 }
 
@@ -27,6 +30,24 @@ body {
     width: 90%;
     max-width: 940px;
     margin: 0 auto;
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: #fff;
+
+    display: block;
+    margin: 16px 0;
+    padding: 9px 20px;
+
+    width: 100%;
+    border-radius: 4px;
+
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    cursor: pointer;
 }
 
 /* HEADER */
@@ -82,16 +103,17 @@ nav.primary ul a.active {
 }
 
 /* CHEF e RECIPE FORM */
-section.form {
-    margin: 50px 0;
+section.form .header {
+    display: grid;
+    grid-template-columns: 1fr 138px;
+    align-items: center;
+    margin-bottom: 26px;
+    margin-top: 50px;
 }
-
 section.form .header h3 {
     font-size: 24px;
     line-height: 29px;
     color: #111;
-
-    margin-bottom: 26px;
 }
 
 form .item {
@@ -102,6 +124,7 @@ form .item > div:nth-child(1) {
     font-size: 16px;
     line-height: 19px;
     color: #111;
+    margin-bottom: 10px;
 }
 
 form .item input[type="text"],
@@ -110,14 +133,34 @@ form .item select {
     width: 100%;
 
     padding: 15px 20px;
+    margin-bottom: 15px;
 
-    background: #FFFFFF;
-    border: 1px solid #DDDDDD;
+    background: #FFF;
+    border: 1px solid #DDD;
     border-radius: 4px;
 
     font-size: 16px;
     line-height: 19px;
     color: #999;
+}
+
+form .item select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    color: #999;
+    font-size: 16px;
+    line-height: 19px;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%;
+    background-size: .65em auto;
+}
+
+form .item textarea {
+    min-height: 257px;
 }
 
 
