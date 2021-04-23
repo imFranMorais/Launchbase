@@ -1,4 +1,5 @@
 const Recipe = require('../models/Recipe')
+const Chef = require('../models/Chef')
 
 module.exports = {
     index(req, res) {
@@ -22,9 +23,16 @@ module.exports = {
     },
     
     create(req, res) {
-        Recipe.chefsSelectOptions(null, function(options){
-            return res.render("admin/recipes/create", { chefOptions: options })
-        })  
+
+        Chef.all()
+        .then(function(results) {
+
+            const chefOptions = results.rows
+            return res.render("admin/recipes/create.njk", { chefOptions })
+
+        }).catch(function(err) {
+            throw new Error(err)
+        })
     },
     
     post(req, res) {

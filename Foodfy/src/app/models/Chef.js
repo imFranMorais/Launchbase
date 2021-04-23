@@ -1,15 +1,10 @@
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
-        db.query(`
-        SELECT *
-        FROM chefs`, function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            callback(results.rows) 
-
-        })  
+    all() {
+        return db.query(`
+            SELECT * FROM chefs
+        `)
     },
     create(data, callback) {
         const query = `
