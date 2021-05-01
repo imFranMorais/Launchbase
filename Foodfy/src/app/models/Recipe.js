@@ -37,16 +37,11 @@ module.exports = {
         return db.query(query, values)
     
     },
-    find(id, callback) {
-        db.query(` 
+    find(id) {
+        return db.query(` 
             SELECT * 
             FROM recipes 
-            WHERE id = $1`, [id], function(err, results) {
-                if(err) throw `Database Error! ${err}`
-                callback(results.rows[0])
-
-                
-        })
+            WHERE id = $1`, [id])
     },
     update(data, callback) {
         const query = `

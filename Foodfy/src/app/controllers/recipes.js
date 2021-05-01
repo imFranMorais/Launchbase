@@ -48,24 +48,21 @@ module.exports = {
         let results = await Recipe.create(req.body)
         const recipeId = results.rows[0].id
 
-        results = await Chef.all()
-        const chefOptions = results.rows
-
-        return res.render("admin/recipes/create.njk", {chefOptions, recipeId})
+        return res.redirect(`/admin/recipes/${recipeId}/edit`)
 
     },
     
-    edit(req, res) {
-        
-        Recipe.find(req.params.id, function(recipe) {
-            if (!recipe) return res.send("Recipe not found!")
+    async edit(req, res) {
+        let results = await Recipe.find(req.params.id)
+        const recipe = results.rows[0]
 
-            Recipe.chefsSelectOptions(null, function(chefs) {
+        if (!recipe) return res.send("Recipe not found!")
 
-                return res.render("admin/recipes/edit", {recipe, chefOptions: chefs})
-            })
+        results = await Chef.all()
+        const chefOptions = results.rows
+
+        return res.render("admin/recipes/edit.njk", {recipe, chefOptions})
   
-        })
     },
     
     put(req, res) {

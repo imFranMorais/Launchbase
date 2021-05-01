@@ -89,6 +89,7 @@ main {
     justify-content: center;
     display: flex;
 }
+
 #introduction {/* parte rosa da página inicial */
     margin-top: 36px;
     background-color: #FBDFDB;
@@ -96,7 +97,6 @@ main {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    
 }
 
 #introduction h1 { /* "as melhores receitas" */

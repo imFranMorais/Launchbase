@@ -2,6 +2,7 @@
 
 :root {
     --primary-color: #6558C3;
+    --secondary-color: #DC4747;
 }
 
 * {
@@ -23,7 +24,6 @@ body {
 
     display: flex;
     flex-direction: column;
- 
 }
 
 .container { 
@@ -40,14 +40,24 @@ body {
     margin: 16px 0;
     padding: 9px 20px;
 
+    max-width: 139px;
     width: 100%;
     border-radius: 4px;
 
     font-size: 16px;
     line-height: 19px;
+
     text-align: center;
+    justify-self: end;
 
     cursor: pointer;
+    
+}
+
+.button.delete {
+    width: 92px;
+
+    background-color: var(--secondary-color);
 }
 
 /* HEADER */
@@ -55,6 +65,7 @@ header {
     background-color: #111111;
     color: #fff;
 
+    max-width: 100%;
     width: 100%;
     padding: 25px 0;
 
@@ -105,11 +116,19 @@ nav.primary ul a.active {
 /* CHEF e RECIPE FORM */
 section.form .header {
     display: grid;
-    grid-template-columns: 1fr 138px;
+    grid-template-columns: 1fr 241px;
     align-items: center;
     margin-bottom: 26px;
     margin-top: 50px;
 }
+
+section.form .header #button {
+   display: grid;
+   grid-template-columns: 92px 139px;
+   column-gap: 10px;
+
+}
+
 section.form .header h3 {
     font-size: 24px;
     line-height: 29px;

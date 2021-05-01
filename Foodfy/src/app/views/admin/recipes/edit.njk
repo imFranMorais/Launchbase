@@ -6,31 +6,31 @@
 
 {% block content %}
 
-    <div class="recipe_edit_title">
+    <section class="container form">
+        <form method="POST" action="/admin/recipes?_method=PUT">
 
-        <div class="wrapper_edit">
-            <h2>Editando receita</h2>
-        </div>
+            <div class="header">
+                <h3>Editando receita</h3>
+                <div id="button">
+                    <button class="button delete" type="submit">Deletar</button>
+                    <button class="button" type="submit">Salvar receita</button>
+                </div>
+            </div>
 
-        <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
-            <input type="hidden" name="id" value="{{ recipe.id }}">
-            <button type="submit" class="delete">Deletar</button>
+            <div class="fields">
+                {% include 'admin/recipes/fields.njk' %}
+                <input 
+                    type="hidden" 
+                    name="id" 
+                    value="{{recipe.id}}"
+                >
+            </div>
+
+            <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
+                <input type="hidden" name="id" value="{{recipe.id}}">
+            </form>
+
         </form>
-        
-        <span>
-            <button id="update" type="submit" class="save">Salvar receita</button>
-        </span> 
-
-    </div>
-
-        <form id="form-update" method="POST" action="/admin/recipes?_method=PUT" class="menu">
-            <input type="hidden" name="id" value="{{ recipe.id }}">
-
-        <section class="details">
-
-            {% include 'admin/recipes/fields.njk' %}
-
-        </section>
-    </form>
+    </section>
 
 {% endblock content %}
