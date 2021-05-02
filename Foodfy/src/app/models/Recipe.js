@@ -43,57 +43,30 @@ module.exports = {
             FROM recipes 
             WHERE id = $1`, [id])
     },
-    update(data, callback) {
+    update(data) {
         const query = `
             UPDATE recipes SET
-                image=($1),
+                chef_id=($1),
                 name=($2),
-                ingredients=($3),
-                preparation=($4), 
-                information=($5),
-                chef_id=($6)
-            WHERE id = $7
+                information=($3),
+                ingredients=($4),
+                preparation=($5)
+            WHERE id = $6
         `
  
         const values = [
-            data.image,
+            data.chef_id,
             data.name,
+            data.information,
             data.ingredients,
             data.preparation,
-            data.information,
-            data.chef,
             data.id
         ]
 
-        db.query(query, values, function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            callback()
-        })
+        return db.query(query, values)
     },
-    delete(id, callback) {
-        db.query('DELETE FROM recipes WHERE id = $1', [id], function(err, results) {
-            if(err) throw `Database Error! ${err}`
-
-            return callback()
-        })
-
-    },
-    chefsSelectOptions(chef_id, callback) {
-        if (chef_id) {
-            db.query(`SELECT name, id FROM chefs WHERE id = $1`, [chef_id], function(err, results) {
-                if(err) throw `Database Error! ${err}`
-    
-                callback(results.rows[0])
-            })
-        } else {
-            db.query(`SELECT name, id FROM chefs`, function(err, results) {
-                if(err) throw `Database Error! ${err}`
-    
-                callback(results.rows)
-            })
-        }
+    delete(id) {
+        return db.query('DELETE FROM recipes WHERE id = $1', [id])
 
     }
-
 }

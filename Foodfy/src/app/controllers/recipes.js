@@ -36,7 +36,6 @@ module.exports = {
     },
     
     async post(req, res) {
-    
         const keys = Object.keys(req.body)
     
         for (key of keys) {
@@ -65,27 +64,23 @@ module.exports = {
   
     },
     
-    put(req, res) {
-
+    async put(req, res) {
         const keys = Object.keys(req.body)
-    
+        
         for (key of keys) {
             if (req.body[key] == "") {
                 return res.send("Please, fill all fields!")
             }
         } 
-
-        Recipe.update(req.body, function() {
-            return res.redirect(`/admin/recipes/${req.body.id}`)
-
-        })
+        
+        await Recipe.update(req.body)
+        
+        return res.redirect(`/admin/recipes/${req.body.id}/edit`)
     },
     
-    delete(req, res) {
-        Recipe.delete(req.body.id, function() {
-            return res.redirect(`/admin/recipes`)
-        })  
+    async delete(req, res) {
+        await Recipe.delete(req.body.id)
+            return res.redirect(`/admin/recipes/create`)
     }
-    
 }
 
