@@ -77,3 +77,17 @@ updateButton.addEventListener("click", function() {
     formUpdate.submit()
 })
 }
+
+const PhotosUpload = {
+    uploadLimit: 5,
+    handleFileInput(event) {
+        const { files: fileList } = event.target
+        const { uploadLimit } = PhotosUpload
+
+        if (fileList.length > uploadLimit) {
+            alert(`Envie no máximo ${uploadLimit} fotos!`)
+            event.preventDefault()
+            return
+        }
+    }
+}
