@@ -1,13 +1,20 @@
             <div class="item">
                 <div>Imagem da receita</div>
-                {# <div>
-                    <input 
-                        type="url" 
-                        name="image" 
-                        placeholder="http://"
-                        value="{{ recipe.image }}"
-                    >
-                </div> #}
+                <div>
+                    <div id="photos-upload">
+                        <input 
+                            id="photos-input" 
+                            type="file" 
+                            name="photos" 
+                            multiple
+                            accept="image/*"
+                        >
+                        <p>Selecione até 5 fotos</p>
+                    </div>
+                    <div id="photos-preview">
+
+                    </div>
+                </div>
 
             </div>
 
