@@ -55,7 +55,7 @@ module.exports = {
         `
  
         const values = [
-            data.chef_id,
+            data.chef,
             data.name,
             data.information,
             data.ingredients,

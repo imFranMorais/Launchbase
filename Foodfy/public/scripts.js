@@ -70,6 +70,12 @@ formDelete.addEventListener("submit", function (event) {
 })
 }
 
+document.querySelector(".button.delete").addEventListener("click", (event) => {
+    event.preventDefault();
+    const formulario = document.querySelector("#form-delete");
+    formulario.submit();
+})
+
 const formUpdate = document.querySelector("#form-update")
 const updateButton = document.querySelector("#update")
 if (formUpdate) {
@@ -89,5 +95,15 @@ const PhotosUpload = {
             event.preventDefault()
             return
         }
+
+        Array.from(fileList).forEach(file => {
+            const reader = new FileReader()
+
+            reader.onload = () => {
+
+            }
+
+            reader.readAsDataURL(file)
+        })
     }
 }
