@@ -39,9 +39,9 @@ function addInput(event) {
     const preparation = document.querySelector('#preparation')
     const buttonName = event.target.name
     const fieldCointainer = document.querySelectorAll(`.${buttonName}`)
- 
+
     // Clone do último ingrediente adicionado
-    const newField = fieldCointainer[ fieldCointainer.length - 1 ].cloneNode(true)
+    const newField = fieldCointainer[fieldCointainer.length - 1].cloneNode(true)
 
     // Não add novo input se último estiver vazio
     if (newField.children[0].value == "") return false
@@ -62,27 +62,23 @@ document
 
 const formDelete = document.querySelector("#form-delete")
 if (formDelete) {
-formDelete.addEventListener("submit", function (event) {
-    const confirmation = confirm("Deseja deletar?")
-    if (!confirmation) {
-        event.preventDefault()
-    }
-})
+    formDelete.addEventListener("submit", function (event) {
+        const confirmation = confirm("Deseja deletar?")
+        if (!confirmation) {
+            event.preventDefault()
+        }
+    })
 }
 
 
 
 const PhotosUpload = {
+    preview: document.querySelector('#photos-preview'),
     uploadLimit: 5,
     handleFileInput(event) {
         const { files: fileList } = event.target
-        const { uploadLimit } = PhotosUpload
 
-        if (fileList.length > uploadLimit) {
-            alert(`Envie no máximo ${uploadLimit} fotos!`)
-            event.preventDefault()
-            return
-        }
+        if(PhotosUpload.hasLimit(event)) return
 
         Array.from(fileList).forEach(file => {
             const reader = new FileReader()
@@ -91,18 +87,32 @@ const PhotosUpload = {
                 const image = new Image()
                 image.src = String(reader.result)
 
-                const div = document.createElement('div')
-                div.classList.add('photo')
-
-                div.onclick = () => alert('remover foto')
-
-                div.appendChild(image)
-
-                document.querySelector('#photos-preview').appendChild(div)
+                const div = PhotosUpload.getContainer(image)
+                PhotosUpload.preview.appendChild(div)
             }
 
             reader.readAsDataURL(file)
         })
+    },
+    getContainer(image) {
+        const div = document.createElement('div')
+        div.classList.add('photo')
+
+        div.onclick = () => alert('remover foto')
+
+        div.appendChild(image)
+
+        return div
+    },
+    hasLimit(event) {
+        const { uploadLimit } = PhotosUpload
+
+        if (fileList.length > uploadLimit) {
+            alert(`Envie no máximo ${uploadLimit} fotos!`)
+            event.preventDefault()
+            return true
+        }
+        return false
     }
 }
 
@@ -115,7 +125,7 @@ document.querySelector(".button.delete").addEventListener("click", (event) => {
 const formUpdate = document.querySelector("#form-update")
 const updateButton = document.querySelector("#update")
 if (formUpdate) {
-updateButton.addEventListener("click", function() {
-    formUpdate.submit()
-})
+    updateButton.addEventListener("click", function () {
+        formUpdate.submit()
+    })
 }
