@@ -1,5 +1,6 @@
 const Recipe = require('../models/Recipe')
 const Chef = require('../models/Chef')
+const File = require('../models/File')
 
 module.exports = {
     index(req, res) {
@@ -44,8 +45,18 @@ module.exports = {
             }
         }
 
+        if (req.files.length == 0)
+            return res.send('Please, send at least one image')
+
+
         let results = await Recipe.create(req.body)
         const recipeId = results.rows[0].id
+
+        req.files.forEach(file => {
+            await File.create({ 
+                ...file,
+                product_id: product_id })
+        })
 
         return res.redirect(`/admin/recipes/${recipeId}/edit`)
 
