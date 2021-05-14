@@ -1,6 +1,7 @@
 const Recipe = require('../models/Recipe')
 const Chef = require('../models/Chef')
 const File = require('../models/File')
+const RecipeFiles = require('../models/RecipeFiles')
 
 module.exports = {
     index(req, res) {
@@ -48,13 +49,14 @@ module.exports = {
         if (req.files.length == 0)
             return res.send('Please, send at least one image')
 
-
         let results = await Recipe.create(req.body)
         const recipeId = results.rows[0].id
 
-        const filesPromise = req.files.map(file => File.create({...file, product_id: product_id }))
-        await Promise.all(filesPromise)
-        
+        const filesPromise = req.files.map(file => File.create(file.filename, file.path))
+        const Ids = await Promise.all(filesPromise)
+        const filesRecipes = Ids.map(file => RecipeFiles.create(recipeId, file.rows[0].id))
+        await Promise.all(filesRecipes)
+
         return res.redirect(`/admin/recipes/${recipeId}/edit`)
 
     },
