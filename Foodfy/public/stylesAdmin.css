@@ -181,6 +181,7 @@ form .item select {
 
 form .item textarea {
     min-height: 257px;
+    font-family: 'Helvetica', sans-serif;
 }
 
 button.add-input {
