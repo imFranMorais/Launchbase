@@ -1,7 +1,6 @@
 const { formatPrice } = require('../../lib/utils')
 
 const Product = require('../models/Product')
-const File = require('../models/File')
 
 module.exports = {
     async index(req, res) {
@@ -11,15 +10,15 @@ module.exports = {
         if (!products) return res.send("Products not found!")
 
         async function getImage(productId) {
-            let results = await Product.files(product.id)
+            let results = await Product.files(productId)
             let files = results.rows
             files = files.map(file => `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`)
 
             return files[0]
         }
 
-        const productsPromise = products.map(product => {
-            product.img = await getImage(product)
+        const productsPromise = products.map(async product => {
+            product.img = await getImage(product.id)
             product.oldPrice = formatPrice(product.oldPrice)
             product.price = formatPrice(product.price)
             return product
