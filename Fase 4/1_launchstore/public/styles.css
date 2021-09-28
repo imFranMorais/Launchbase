@@ -483,3 +483,19 @@ form .item #photos-preview img {
     font-size: 14px;
     letter-spacing: 0.4px;
 }
+
+/* SHOP */
+.shop h2 {
+    margin: 48px;
+}
+
+.shop .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-gap: 32px;
+}
+
+.shop .product {
+    display: grid;
+}
