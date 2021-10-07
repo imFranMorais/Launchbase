@@ -42,6 +42,11 @@ module.exports = {
                 total: products.length
             }
 
+            const categories = products.map(product => ({
+                id: product.category_id,
+                name: product.category_name
+            }))
+
             return res.render("search/index", { products })
 
         }
