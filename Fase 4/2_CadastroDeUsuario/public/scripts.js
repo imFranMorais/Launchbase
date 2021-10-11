@@ -11,7 +11,69 @@ const Mask = {
             style: 'currency',
             currency: 'BRL'
         }).format(value/100)
-    }
+    },
+    cpfCnpj(value) {
+        value = value.replace(/\D/g,"")
+
+        if (value.length > 14)
+            value = value.slice(0, -1)
+
+        // check if cnpj - 11.222.333/4444-55
+        if (value.length > 11) {
+            //11222333444455
+
+            //11.222333444455
+            value = value.replace(/(\d{2})(\d)/, "$1.$2" )
+
+            //11.222.333444455
+            value = value.replace(/(\d{3})(\d)/, "$1.$2" )
+
+            //11.222.333/444455
+            value = value.replace(/(\d{3})(\d)/, "$1/$2" )
+
+            //11.222.333/4444-55
+            value = value.replace(/(\d{4})(\d)/, "$1-$2" )
+
+
+        } else {
+            // cpf - 111.222.333-44
+            //11122233344
+
+            //111.22233344
+            value = value.replace(/(\d{3})(\d)/, "$1.$2" )
+
+            //111.222.33344
+            value = value.replace(/(\d{3})(\d)/, "$1.$2" )
+
+            //111.222.333-44
+            value = value.replace(/(\d{3})(\d)/, "$1-$2" )
+
+        }
+
+        return value
+
+    },
+    cep(value) {
+        value = value.replace(/\D/g,"")
+
+        if (value.length > 8) {
+            value = value.slice(0, -1)
+        } else {
+            // cep - 11.222-333
+                //11222333
+    
+                //11.222333
+                value = value.replace(/(\d{2})(\d)/, "$1.$2" )
+    
+                //11.222-333
+                value = value.replace(/(\d{3})(\d)/, "$1-$2" )
+
+        }    
+
+        return value
+
+    },
+    
 }
 
 const PhotosUpload = {
