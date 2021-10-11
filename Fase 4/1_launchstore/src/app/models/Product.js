@@ -85,7 +85,7 @@ module.exports = {
 
         if (category) {
             filterQuery = `${filterQuery}
-            products.categor_id = ${category_id}
+            products.categor_id = ${category}
             AND`
         }
 
